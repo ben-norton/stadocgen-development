@@ -7,12 +7,14 @@ src = '../../../data/ltc/ltc-source/mapping/ltc_skos_mapping.csv'
 filepath = Path(src)
 targetpath = filepath.parents[2] / 'ltc-docs'
 skos_source_df = pd.read_csv(src, encoding='utf8')
+
 # 2. Place copy in new folder with new filename
 skoscsv = os.path.join(targetpath,r'ltc-skos.csv')
 skos_source_df.to_csv(skoscsv, index=False, encoding='utf8')
 
 newsrc = '../../../data/ltc/ltc-docs/ltc-skos.csv'
 skos_df = pd.read_csv(newsrc, encoding="utf8")
+skos_df = skos_df.drop_duplicates(keep='first')
 skos_df.rename(columns={'term_localName':'term_uri'}, inplace=True)
 skos_df.to_csv(newsrc, index=False, encoding='utf8')
 

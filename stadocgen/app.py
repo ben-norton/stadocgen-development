@@ -67,14 +67,23 @@ def terms():
 
     # Terms
     terms_csv = 'data/ltc/ltc-docs/ltc-terms-list.csv'
-    df = pd.read_csv(terms_csv, encoding='utf8')
-    terms = df.sort_values(by=['class_name'])
+    terms_df = pd.read_csv(terms_csv, encoding='utf8')
+
+    skoscsv = 'data/ltc/ltc-docs/ltc-skos.csv'
+    skos_df = pd.read_csv(skoscsv, encoding='utf8')
+
+    terms_skos_df = pd.merge(
+        terms_df, skos_df[['term_uri', 'skos_mappingRelation', 'related_termName']], on=['term_uri'], how='left'
+    )
+    terms = terms_skos_df.sort_values(by=['class_name'])
+    terms['examples'] = terms['examples'].str.replace(r'"', '')
+    terms['definition'] = terms['definition'].str.replace(r'"', '')
 
     # Unique Class Names
-    ltcCls = df["class_name"].dropna().unique()
+    ltcCls = terms_df["class_name"].dropna().unique()
 
     # Terms by Class
-    grpdict2 = df.groupby('class_name')[['term_ns_name', 'term_local_name']].apply(
+    grpdict2 = terms_df.groupby('class_name')[['term_ns_name', 'term_local_name']].apply(
         lambda g: list(map(tuple, g.values.tolist()))).to_dict()
     termsByClass = []
     for i in grpdict2:
@@ -101,6 +110,8 @@ def quickReference():
 
     # Quick Reference Main
     df = pd.read_csv('data/ltc/ltc-docs/ltc-terms-list.csv', encoding='utf8')
+    df['examples'] = df['examples'].str.replace(r'"', '')
+    df['definition'] = df['definition'].str.replace(r'"', '')
 
     # Group by Class
     grpdict = df.fillna(-1).groupby('class_name')[['namespace', 'term_local_name', 'label', 'definition',

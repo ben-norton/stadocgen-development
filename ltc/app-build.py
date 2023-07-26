@@ -7,7 +7,7 @@ import pandas as pd
 import csv
 
 app = Flask(__name__)
-freezer = Freezer(app) # Added
+freezer = Freezer(app)
 
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FREEZER_DESTINATION'] = '../docs'

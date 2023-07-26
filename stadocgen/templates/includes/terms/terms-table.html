@@ -1,4 +1,5 @@
 <h2 id="5-vocabulary">5 Vocabulary</h2>
+Count: {{ terms|length }}
   {% for k,v in terms.iterrows() %}
 
 	<a id="{{ v['term_ns_name'] }}"></a>
@@ -17,7 +18,7 @@
 						</tr>
                         <tr>
 							<th scope="row">Term URI</th>
-							<td>{{ v['term_uri'] }}</td>
+							<td>{{ v['term_uri']|urlize }}</td>
 						</tr>
 
 						<tr>
@@ -39,7 +40,7 @@
 
 						{% if v['notes'] is number %}
 						{% else %}
-												<tr>
+						<tr>
 							<th scope="row">Notes</th>
 							<td>{{ v['notes'] }}</td>
 						</tr>
@@ -49,9 +50,17 @@
 
 						{% if v['examples'] is number %}
 						{% else %}
+						{% set list1 = v['examples'].split('`, `') %}
 						<tr>
 							<th scope="row">Examples</th>
-							<td>{{ v['examples'] }}</td>
+							<td>
+								<ul class="td-list">
+									{% for item in list1 %}
+										<li><span>{{ item|replace("`","") }}</span></li>
+									{% endfor %}
+								</ul>
+
+							</td>
 						</tr>
 
 						{% endif %}
@@ -87,7 +96,17 @@
                                 <td class="class"><a href="{{ v['rdf_type'] }}">rdfs:Class</a></td>
                             {%  endif %}
 						</tr>
-						</tbody>
-					</table>
+						{% if v['skos_mappingRelation'] is number %}
+						{% else %}
+							<tr class="skos-tr skos-header">
+								<th>SKOS Mappings</th>
+								<td>
+									<span class="w-50 skos-map"><a href="http://www.w3.org/2004/02/skos/core#{{ v['skos_mappingRelation'] }}">skos:{{ v['skos_mappingRelation'] }}</a></span>
+									<span class="w-50 skos-term">{{ v['related_termName']|urlize }}</span>
+								</td>
+							</tr>
+					{% endif %}
+				</tbody>
+			</table>
 				</div>
 				{% endfor %} 

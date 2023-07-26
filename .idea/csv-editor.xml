@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\stadocgen\data\ltc\ltc-docs\ltc-terms-list-init.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\stadocgen\data\ltc\ltc-docs\ltc-terms-list.csv">
           <value>
             <Attribute>
@@ -116,6 +123,34 @@
           </value>
         </entry>
         <entry key="\stadocgen\data\ltc\ltc-source\schema.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\stadocgen\utils\tests\ltcdf.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\stadocgen\utils\tests\ltcdf2.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\stadocgen\utils\tests\ltcdf3.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\stadocgen\utils\transformations\ltc\ltc-terms-datatypes.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

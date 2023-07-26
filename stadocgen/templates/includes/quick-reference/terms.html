@@ -54,9 +54,16 @@
                     {% endif %}
 
                     {% if k[6] and (k[6] != -1) %}
+                        {% set list1 = k[6].split('`, `') %}
                         <tr>
                             <th scope="row">Examples</th>
-                            <td>{{ k[6] }}</td>
+                            <td>
+                                <ul class="td-list">
+									{% for item in list1 %}
+										<li><span>{{ item|replace("`","") }}</span></li>
+									{% endfor %}
+								</ul>
+                            </td>
                         </tr>
                     {% else %}
                     {% endif %}

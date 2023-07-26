@@ -36,7 +36,7 @@ ltc_df['term_ns_name'] = ltc_df['namespace'].astype(str) + ltc_df['term_local_na
 
 # Write transformations to file
 ltc_df.to_csv(newsrc, index=False, encoding='utf8')
-
+ltc_df = pd.read_csv(newsrc, encoding="utf8")
 # Datatypes
 dt_src = '../../../data/ltc/ltc-source/ltc_datatypes.csv'
 dt_filepath = Path(dt_src)
@@ -51,7 +51,7 @@ dt_newsrc = '../../../data/ltc/ltc-docs/ltc-datatypes.csv'
 dt_ltc_df = pd.read_csv(dt_newsrc, encoding="utf8")
 # Rename Column
 dt_ltc_df.rename(columns={'term_localName':'term_local_name','tdwgutility_organizedInClass':'class_name'}, inplace=True)
-dt_ltc_df['compound_name'] = ltc_df[["class_name", "term_local_name"]].apply(".".join, axis=1)
+dt_ltc_df['compound_name'] = dt_ltc_df[["class_name", "term_local_name"]].apply(".".join, axis=1)
 # Write changes to file
 dt_ltc_df.to_csv(dt_newsrc, index=False, encoding='utf8')
 
