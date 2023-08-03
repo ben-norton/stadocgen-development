@@ -1,11 +1,9 @@
-from flask import Flask, render_template
+from flask import render_template, request, jsonify
+from app import app
 from markupsafe import Markup
 import markdown2
 import pandas as pd
-from flask_flatpages import FlatPages, pygmented_markdown, pygments_style_defs
-
-app = Flask(__name__)
-app.config.from_pyfile("config.py")
+from flask_flatpages import pygmented_markdown, pygments_style_defs
 
 @app.errorhandler(404)
 def not_found_error(error):
@@ -22,7 +20,7 @@ def pygments_css():
 # Homepage with content stored in markdown file
 @app.route('/')
 def home():
-    home_mdfile = 'md/ltc/home-content.md'
+    home_mdfile = 'app/md/ltc/home-content.md'
     marked_text = ''
     with open(home_mdfile, encoding="utf8") as f:
         marked_text = markdown2.markdown(f.read())
@@ -33,12 +31,12 @@ def home():
 
 @app.route('/skos-mappings')
 def skosMappings():
-    skos_mdfile = 'md/ltc/skos-header.md'
+    skos_mdfile = 'app/md/ltc/skos-header.md'
     skos_text = ''
     with open(skos_mdfile, encoding="utf8") as f:
         skos_text = markdown2.markdown(f.read())
 
-    sssom_mdfile = 'md/ltc/sssom-header.md'
+    sssom_mdfile = 'app/md/ltc/sssom-header.md'
     sssom_text = ''
     with open(sssom_mdfile, encoding="utf8") as f:
         sssom_text = markdown2.markdown(f.read())
@@ -134,5 +132,3 @@ def quickReference():
     )
 
 
-if (__name__ == "__main__"):
-    app.run(port = 5000, debug=True)

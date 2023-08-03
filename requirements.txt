@@ -1,0 +1,10 @@
+csvwlib==0.3.2
+Flask==2.3.2
+flask_flatpages==0.8.1
+Frozen_Flask==0.18
+Jinja2==3.1.2
+markdown2==2.4.10
+MarkupSafe==2.1.3
+numpy==1.25.2
+pandas==2.0.3
+tableschema==1.20.2
