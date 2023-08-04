@@ -1,0 +1,18 @@
+configuration:
+  title: Latimer Core
+  pages:
+    - terms
+    - quick-reference
+    - resources
+  csvfiles:
+    - ltc-datatypes.csv
+    - ltc-namespaces.csv
+    - ltc-skos.csv
+    - ltc-sssom.csv
+    - ltc-terms-list.csv
+  markdown:
+    - home-content.md
+    - quick-reference-header.md
+    - terms-list-header.md
+    - sssom-header.md
+
