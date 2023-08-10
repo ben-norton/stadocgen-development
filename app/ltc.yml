@@ -15,4 +15,6 @@ configuration:
     - quick-reference-header.md
     - terms-list-header.md
     - sssom-header.md
+  cmds:
+    - to run application, enter flask run in root project folder
 

@@ -6,10 +6,10 @@ import os
 import argparse
 from pathlib import Path
 
-# python generate-schema.py -csv data\ltc\ltc-set\ltc-terms-list.csv -o ltc-terms-list
-# python generate-schema.py -csv data\ltc\ltc-source\ltc_terms_source.csv -o ltc-terms-source
-# python generate-schema.py -csv data\ltc\ltc-source\ltc_terms_source.csv -o ltc-terms-source
-# python generate-schema.py -csv data\ltc\ltc-source\ltc_datatypes.csv -o ltc-datatypes
+# python generate_schema.py _csv data\ltc\ltc_set\ltc_terms_list.csv _o ltc_terms_list
+# python generate_schema.py _csv data\ltc\ltc_source\ltc_terms_source.csv _o ltc_terms_source
+# python generate_schema.py _csv data\ltc\ltc_source\ltc_terms_source.csv _o ltc_terms_source
+# python generate_schema.py -csv data\ltc\ltc-source\ltc_datatypes.csv -o ltc-datatypes
 #python generate-schema.py -csv data\ltc\ltc-docs\ltc-terms-list.csv -o ltc-terms-list
 
 

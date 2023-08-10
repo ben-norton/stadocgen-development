@@ -15,9 +15,9 @@ app.config['FREEZER_RELATIVE_URLS'] = True
 app.config['FREEZER_IGNORE_MIMETYPE_WARNINGS'] = True
 @app.route('/')
 def home():
-    home_md = 'templates/markdown/home-content.md'
+    home_md = 'templates/markdown/home_content.md'
     markdown.markdownFromFile(input=home_md,
-                              output='templates/includes/home/home-content.html',
+                              output='templates/includes/home/home_content.html',
                               extensions=['tables'])
     return render_template(
         "home.html",
@@ -25,9 +25,9 @@ def home():
         slug='home'
     )
 
-@app.route('/skos-mappings/')
+@app.route('/skos_mappings/')
 def skosMappings():
-    skoscsv = 'data/ltc-set/ltc-skos-mapping.csv'
+    skoscsv = 'data/ltc_set/ltc_skos-mapping.csv'
     skos = pd.read_csv(skoscsv, encoding='utf8')
 
     sssomcsv = 'data/ltc-set/ltc-sssom-mapping.csv'

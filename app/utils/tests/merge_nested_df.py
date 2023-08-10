@@ -1,10 +1,10 @@
 import pandas as pd
 from jinja2 import Template
 
-terms_csv = '../../data/ltc/ltc-docs/ltc-terms-list.csv'
+terms_csv = '../../data/ltc/ltc_docs/ltc_terms_list.csv'
 terms_df = pd.read_csv(terms_csv, encoding='utf8')
 
-skoscsv = '../../data/ltc/ltc-docs/ltc-skos.csv'
+skoscsv = '../../data/ltc/ltc_docs/ltc_skos.csv'
 skos_df = pd.read_csv(skoscsv, encoding='utf8')
 
 skos_list = []

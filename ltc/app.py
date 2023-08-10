@@ -9,9 +9,9 @@ app.config.from_pyfile("config.py")
 # Homepage with content stored in markdown file
 @app.route('/')
 def home():
-    home_md = 'templates/markdown/home-content.md'
+    home_md = 'templates/markdown/home_content.md'
     markdown.markdownFromFile(input=home_md,
-                              output='templates/includes/home/home-content.html',
+                              output='templates/includes/home/home_content.html',
                               extensions=['tables'])
     return render_template(
         "home.html",

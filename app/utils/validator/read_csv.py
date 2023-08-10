@@ -2,7 +2,7 @@ import csv
 import pandas as pd
 
 # open the file in read mode
-csvfile = '../../data/ltc/ltc-docs/ltc-terms-list.csv'
+csvfile = '../../data/ltc/ltc_docs/ltc_terms_list.csv'
 
 data = pd.read_csv(csvfile)
 df = pd.DataFrame(data)

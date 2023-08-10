@@ -21,7 +21,7 @@ def pygments_css():
 # Homepage with content stored in markdown file
 @app.route('/')
 def home():
-    home_mdfile = 'md/ltc/home-content.md'
+    home_mdfile = 'content/md/ltc/home_content.md'
     marked_text = ''
     with open(home_mdfile, encoding="utf8") as f:
         marked_text = markdown2.markdown(f.read())
@@ -32,16 +32,16 @@ def home():
 
 @app.route('/terms/')
 def terms():
-    header_mdfile = 'md/ltc/terms-list-header.md'
+    header_mdfile = 'content/md/ltc/terms_list_header.md'
     marked_text = ''
     with open(header_mdfile, encoding="utf8") as f:
         marked_text = markdown2.markdown(f.read(), extras=["tables", "fenced-code-blocks"])
 
     # Terms
-    terms_csv = 'data/ltc/ltc-docs/ltc-terms-list.csv'
+    terms_csv = 'data/ltc/ltc_docs/ltc_terms_list.csv'
     terms_df = pd.read_csv(terms_csv, encoding='utf8')
 
-    skoscsv = 'data/ltc/ltc-docs/ltc-skos.csv'
+    skoscsv = 'data/ltc/ltc_docs/ltc_skos.csv'
     skos_df = pd.read_csv(skoscsv, encoding='utf8')
 
     terms_skos_df = pd.merge(
@@ -70,23 +70,23 @@ def terms():
                            terms=terms,
                            termsByClass=termsByClass,
                            title='Terms List',
-                           slug='terms-list'
+                           slug='terms_list'
     )
 
-@app.route('/quick-reference/')
+@app.route('/quick_reference/')
 def quickReference():
-    header_mdfile = 'md/ltc/quick-reference-header.md'
+    header_mdfile = 'content/md/ltc/quick_reference_header.md'
     marked_text = ''
     with open(header_mdfile, encoding="utf8") as f:
         marked_text = markdown2.markdown(f.read())
 
     # Quick Reference Main
-    df = pd.read_csv('data/ltc/ltc-docs/ltc-terms-list.csv', encoding='utf8')
+    df = pd.read_csv('data/ltc/ltc_docs/ltc_terms_list.csv', encoding='utf8')
     df['examples'] = df['examples'].str.replace(r'"', '')
     df['definition'] = df['definition'].str.replace(r'"', '')
 
     # Group by Class
-    grpdict = df.fillna(-1).groupby('class_name')[['namespace', 'term_local_name', 'label', 'definition',
+    grpdict = df.fillna(_1).groupby('class_name')[['namespace', 'term_local_name', 'label', 'definition',
                                                    'usage', 'notes','examples', 'rdf_type', 'class_name',
                                                    'is_required', 'is_repeatable', 'compound_name',
                                                    'datatype', 'term_ns_name']].apply(
@@ -98,11 +98,11 @@ def quickReference():
             'terms': grpdict[i]
         })
 
-    return render_template('quick-reference.html',
+    return render_template('quick_reference.html',
                            headerMarkdown=Markup(marked_text),
                            grplists=grplists,
                            title='Quick Reference',
-                           slug='quick-reference'
+                           slug='quick_reference'
     )
 
 if __name__ == "__main__":
