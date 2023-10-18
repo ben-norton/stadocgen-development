@@ -1,0 +1,14 @@
+erDiagram
+	 ObjectGroup ||--o{ OrganisationalUnit : Has
+	 ObjectGroup ||--o{ PersonRole : Has
+	 OrganisationalUnit ||--o{ Address : Has
+	 OrganisationalUnit ||--o{ ContactDetail : Has
+	 OrganisationalUnit ||--o{ ParentOrganisationalUnit : Has
+	 OrganisationalUnit ||--o{ PersonRole : Has
+	 Person ||--o{ Address : Has
+	 Person ||--o{ ContactDetail : Has
+	 PersonRole ||--o{ Address : Has
+	 PersonRole ||--o{ ContactDetail : Has
+	 PersonRole ||--o{ Person : Has
+	 PersonRole ||--o{ Role : Has
+	 PersonRole ||--o{ TemporalCoverage : Has

@@ -4,7 +4,6 @@ from markupsafe import Markup
 import markdown2
 import pandas as pd
 from flask_flatpages import pygmented_markdown, pygments_style_defs
-
 @app.errorhandler(404)
 def not_found_error(error):
     return render_template('errors/404.html'), 404

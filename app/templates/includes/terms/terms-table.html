@@ -96,17 +96,7 @@ Count: {{ terms|length }}
                                 <td class="class"><a href="{{ v['rdf_type'] }}">rdfs:Class</a></td>
                             {%  endif %}
 						</tr>
-						{% if v['skos_mappingRelation'] is number %}
-						{% else %}
-							<tr class="skos-tr skos-header">
-								<th>SKOS Mappings</th>
-								<td>
-									<span class="w-50 skos-map"><a href="http://www.w3.org/2004/02/skos/core#{{ v['skos_mappingRelation'] }}">skos:{{ v['skos_mappingRelation'] }}</a></span>
-									<span class="w-50 skos-term">{{ v['related_termName']|urlize }}</span>
-								</td>
-							</tr>
-					{% endif %}
 				</tbody>
 			</table>
-				</div>
-				{% endfor %} 
+        </div>
+    {% endfor %}

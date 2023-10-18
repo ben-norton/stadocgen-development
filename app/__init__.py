@@ -1,6 +1,4 @@
 from flask import Flask
-from yaml import load, Loader
-
 
 app = Flask(__name__)
 
