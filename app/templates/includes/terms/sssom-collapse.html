@@ -1,0 +1,20 @@
+<button class="btn btn-sssom" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{  k }}" aria-expanded="false" aria-controls="collapse{{  k }}">
+    SKOS Mappings
+</button>
+<div class="collapse show" id="collapse{{ k }}">
+    <table class="table table-condensed table-sssom table-child">
+    <tbody>
+        {% for ks,vs in sssom.iterrows() %}
+            {%  if v['term_uri'] == vs['term_uri'] and v['class_name'] == vs['subject_category'] %}
+                <tr>
+                    <td class="col-1" data-th="predical_label">{{ vs['predicate_label'] }}</td>
+                    <td class="col-2" data-th="object_id">
+                        <a href="{{ vs['object_id'] }}" rel="noopener">{{ vs['object_id'] }}</a>
+                    </td>
+                    <td class="col-3" data-th="mapping_justification">{{ vs['mapping_justification'] }}</td>
+                </tr>
+           {%  endif %}
+        {% endfor %}
+    </tbody>
+    </table>
+</div>

@@ -28,31 +28,6 @@ def home():
                            title='Home',
                            slug='home')
 
-@app.route('/skos-mappings')
-def skosMappings():
-    skos_mdfile = 'app/content/content/md/ltc/skos_header.md'
-    skos_text = ''
-    with open(skos_mdfile, encoding="utf8") as f:
-        skos_text = markdown2.markdown(f.read())
-
-    sssom_mdfile = 'app/content/content/md/ltc/sssom_header.md'
-    sssom_text = ''
-    with open(sssom_mdfile, encoding="utf8") as f:
-        sssom_text = markdown2.markdown(f.read())
-
-    skoscsv = 'data/ltc/ltc_docs/ltc_skos.csv'
-    skos = pd.read_csv(skoscsv, encoding='utf8')
-
-    sssomcsv = 'data/ltc/ltc_docs/ltc_sssom.csv'
-    sssom = pd.read_csv(sssomcsv, encoding='utf8')
-
-    return render_template('skos.html',
-                           sssom=sssom,
-                           skosmd=Markup(skos_text),
-                           sssommd=Markup(sssom_text),
-                           title='SKOS Mappings',
-                           slug='skos-mappings'
-    )
 
 
 @app.route('/terms')
@@ -65,19 +40,16 @@ def terms():
     # Terms
     terms_csv = 'app/data/ltc/ltc_docs/ltc-terms-list.csv'
     terms_df = pd.read_csv(terms_csv, encoding='utf8')
-
-    skoscsv = 'app/data/ltc/ltc_docs/ltc-skos.csv'
-    skos_df = pd.read_csv(skoscsv, encoding='utf8')
-
-    terms_skos_df = pd.merge(
-        terms_df, skos_df[['term_uri', 'skos_mappingRelation', 'related_termName']], on=['term_uri'], how='left'
-    )
-    terms = terms_skos_df.sort_values(by=['class_name'])
+    terms = terms_df.sort_values(by=['class_name'])
     terms['examples'] = terms['examples'].str.replace(r'"', '')
     terms['definition'] = terms['definition'].str.replace(r'"', '')
 
+    sssomcsv = 'app/data/ltc/ltc_docs/ltc_sssom.csv'
+    sssom = pd.read_csv(sssomcsv, encoding='utf8')
+
+
     # Unique Class Names
-    ltcCls = terms_df["class_name"].dropna().unique()
+    ltcCls = terms["class_name"].dropna().unique()
 
     # Terms by Class
     grpdict2 = terms_df.groupby('class_name')[['term_ns_name', 'term_local_name']].apply(
@@ -94,6 +66,7 @@ def terms():
                            ltcCls=ltcCls,
                            terms=terms,
                            termsByClass=termsByClass,
+                           sssom=sssom,
                            title='Terms List',
                            slug='terms-list'
     )

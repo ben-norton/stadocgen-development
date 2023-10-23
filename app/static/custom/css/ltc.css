@@ -529,4 +529,24 @@ Purple: #560D59
 	display: none;
 }
 
-
+.btn.btn-sssom {
+	font-size: 0.9rem;
+	text-align: left;
+	font-weight: 600;
+	white-space: nowrap;
+	border: none;
+	background: none;
+	border-radius: 0;
+	border-bottom: 1px solid rgba(33, 37, 41, 0.5);
+}
+.btn.btn-sssom:focus,
+.btn.btn-sssom:active,
+.btn.btn-sssom:hover {
+	box-shadow: none;
+}
+.btn.btn-sssom:hover {
+	background-color: rgba(230, 230, 230, 0.8);
+}
+.single-term-wrapper {
+	margin-bottom: 12px;
+}

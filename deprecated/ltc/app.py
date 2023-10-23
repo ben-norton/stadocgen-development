@@ -1,18 +1,12 @@
 from flask import Flask, render_template
-from flask_frozen import Freezer # Added
+import pandas as pd
 import markdown
 import markdown.extensions.fenced_code
-import sys
-import pandas as pd
-import csv
 
 app = Flask(__name__)
-freezer = Freezer(app)
+app.config.from_pyfile("config.py")
 
-app.config['TEMPLATES_AUTO_RELOAD'] = True
-app.config['FREEZER_DESTINATION'] = '../docs'
-app.config['FREEZER_RELATIVE_URLS'] = True
-app.config['FREEZER_IGNORE_MIMETYPE_WARNINGS'] = True
+# Homepage with content stored in markdown file
 @app.route('/')
 def home():
     home_md = 'templates/markdown/home_content.md'
@@ -20,28 +14,28 @@ def home():
                               output='templates/includes/home/home_content.html',
                               extensions=['tables'])
     return render_template(
-        "home.html",
+        "templates/home.html",
         title = 'Home',
         slug='home'
     )
 
-@app.route('/skos_mappings/')
+@app.route('/skos-mappings')
 def skosMappings():
-    skoscsv = 'data/ltc_set/ltc_skos-mapping.csv'
+    skoscsv = 'data/ltc-set/ltc-skos-mapping.csv'
     skos = pd.read_csv(skoscsv, encoding='utf8')
 
     sssomcsv = 'data/ltc-set/ltc-sssom-mapping.csv'
     sssom = pd.read_csv(sssomcsv, encoding='utf8')
 
     return render_template(
-        "skos.html",
+        "templates/skos.html",
         sssom=sssom,
         skos=skos,
         title='SKOS Mappings',
         slug='skos-mappings'
     )
 
-@app.route('/terms/')
+@app.route('/terms')
 def terms():
     terms_md = 'templates/markdown/terms-list-header.md'
     markdown.markdownFromFile(input=terms_md,
@@ -66,7 +60,7 @@ def terms():
         })
 
     return render_template(
-        "terms.html",
+        "templates/terms.html",
         ltcCls=ltcCls,
         terms=terms,
         termsByClass=termsByClass,
@@ -74,7 +68,7 @@ def terms():
         slug='terms-list'
     )
 
-@app.route('/quick-reference/')
+@app.route('/quick-reference')
 def quickReference():
     ref_md = 'templates/markdown/quick-reference-header.md'
     markdown.markdownFromFile(input=ref_md,
@@ -96,16 +90,12 @@ def quickReference():
         })
 
     return render_template(
-        "quick-reference.html",
+        "templates/quick-reference.html",
         grplists=grplists,
         title='Quick Reference',
         slug='quick-reference'
     )
 
 
-
-if __name__ == "__main__":
-    if len(sys.argv) > 1 and sys.argv[1] == "build":
-        freezer.freeze()
-    else:
-        freezer.run(debug=True,port=8000)
+if (__name__ == "__main__"):
+    app.run(port = 5000, debug=True)

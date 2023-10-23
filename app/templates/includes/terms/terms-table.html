@@ -1,8 +1,8 @@
 <h2 id="5-vocabulary">5 Vocabulary</h2>
 Count: {{ terms|length }}
   {% for k,v in terms.iterrows() %}
-
-	<a id="{{ v['term_ns_name'] }}"></a>
+      <div class="single-term-wrapper">
+    	<a id="{{ v['term_ns_name'] }}"></a>
         <div class="table-responsive print-avoid">
             <table class="table table-compact table-terms">
                 <thead>
@@ -22,7 +22,7 @@ Count: {{ terms|length }}
 						</tr>
 
 						<tr>
-							<th scope="row">rdfs:Label</th>
+							<th scope="row">Label</th>
 							<td>{{ v['label'] }}</td>
 						</tr>
 						<tr>
@@ -98,5 +98,7 @@ Count: {{ terms|length }}
 						</tr>
 				</tbody>
 			</table>
+            {% include 'includes/terms/sssom-collapse.html' %}
         </div>
+      </div>
     {% endfor %}
