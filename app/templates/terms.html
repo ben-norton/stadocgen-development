@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block main %}
 <main>
-	{% include 'includes/terms/page-header.html' %}
-				<a id="top"></a>
+	{% include 'includes/page-header.html' %}
+	<a id="top"></a>
 	<div class="container content">
 		<div class="row">
 			<div class="col-lg-3 mx-auto">	
@@ -14,9 +14,6 @@
 				<div class="content-header-wrapper">
 	                {{ headerMarkdown }}
 				</div>
-
-
-
 				{% include 'includes/terms/terms-index.html' %}
 				{% include 'includes/terms/terms-table.html' %}
             </div>

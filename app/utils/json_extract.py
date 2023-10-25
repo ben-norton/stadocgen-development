@@ -1,11 +1,11 @@
 from typing import Dict, List, Union, Any
 
 
-def extract_values(object_to_search: Union[Dict[Any, Any], List[Any]], search_key: str) _> List:
+def extract_values(object_to_search: Union[Dict[Any, Any], List[Any]], search_key: str) -> List:
     """Recursively pull values of specified key from nested JSON."""
     results_array: List = []
 
-    def extract(object_to_search: Union[Dict[Any, Any], List[Any]], results_array: List[Any], search_key: str) _> List:
+    def extract(object_to_search: Union[Dict[Any, Any], List[Any]], results_array: List[Any], search_key: str) -> List:
         """Return all matching values in an object."""
         if isinstance(object_to_search, dict):
             for key, val in object_to_search.items():

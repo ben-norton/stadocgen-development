@@ -3,16 +3,16 @@ import pandas as pd
 import os
 
 # 1.  Create copy of source csv
-src = '../../../data/ltc/ltc_source/ltc_terms_source.csv'
+src = '../../../data/ltc/ltc-source/ltc_terms_source.csv'
 filepath = Path(src)
-targetpath = filepath.parents[1] / 'ltc_docs'
+targetpath = filepath.parents[1] / 'ltc-docs'
 ltc_source_df = pd.read_csv(src, encoding='utf8')
 # 2. Place copy in new folder with new filename
-ltccsv = os.path.join(targetpath,r'ltc_terms_list.csv')
+ltccsv = os.path.join(targetpath,r'ltc-terms-list.csv')
 ltc_source_df.to_csv(ltccsv, index=False, encoding='utf8')
 
-newsrc = '../../../data/ltc/ltc_docs/ltc_terms_list.csv'
-ns_csv = '../../../data/ltc/ltc_docs/ltc_namespaces.csv'
+ns_csv = '../../../data/ltc/ltc-docs/ltc-namespaces.csv'
+newsrc = '../../../data/ltc/ltc-docs/ltc-terms-list.csv'
 
 ltc_df = pd.read_csv(newsrc, encoding="utf8")
 # Rename Columns
@@ -36,18 +36,23 @@ ltc_df['term_ns_name'] = ltc_df['namespace'].astype(str) + ltc_df['term_local_na
 
 # Write transformations to file
 ltc_df.to_csv(newsrc, index=False, encoding='utf8')
+
+
+
+
+
 ltc_df = pd.read_csv(newsrc, encoding="utf8")
 # Datatypes
-dt_src = '../../../data/ltc/ltc_source/ltc_datatypes.csv'
+dt_src = '../../../data/ltc/ltc-source/ltc_datatypes.csv'
 dt_filepath = Path(dt_src)
-dt_targetpath = dt_filepath.parents[1] / 'ltc_docs'
+dt_targetpath = dt_filepath.parents[1] / 'ltc-docs'
 dt_ltc_source_df = pd.read_csv(dt_src, encoding='utf8')
 # 2. Place copy in new folder with new filename
-dt_ltccsv = os.path.join(dt_targetpath,r'ltc_datatypes.csv')
+dt_ltccsv = os.path.join(dt_targetpath,r'ltc-datatypes.csv')
 dt_ltc_source_df.to_csv(dt_ltccsv, index=False, encoding='utf8')
 
 # New Datatypes file
-dt_newsrc = '../../../data/ltc/ltc_docs/ltc_datatypes.csv'
+dt_newsrc = '../../../data/ltc/ltc-docs/ltc-datatypes.csv'
 dt_ltc_df = pd.read_csv(dt_newsrc, encoding="utf8")
 # Rename Column
 dt_ltc_df.rename(columns={'term_localName':'term_local_name','tdwgutility_organizedInClass':'class_name'}, inplace=True)
@@ -55,6 +60,6 @@ dt_ltc_df['compound_name'] = dt_ltc_df[["class_name", "term_local_name"]].apply(
 # Write changes to file
 dt_ltc_df.to_csv(dt_newsrc, index=False, encoding='utf8')
 
-ltc_df = pd.merge(ltc_df, dt_ltc_df[['compound_name', 'datatype']], on='compound_name', how='inner')
+ltc_df = pd.merge(ltc_df, dt_ltc_df[['compound_name', 'datatype']], on='compound_name', how='left')
 # Write CSV to File
 ltc_df.to_csv(newsrc, index=False, encoding='utf8')

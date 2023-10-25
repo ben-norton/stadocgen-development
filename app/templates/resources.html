@@ -1,14 +1,24 @@
 {% extends "base.html" %}
 {% block main %}
-<main class="ltc-content">
-	{% include 'includes/home/page-header.html' %}
+<main>
+	{% include 'includes/page-header.html' %}
 	<div class="container content">
 		<div class="row">
-            <div class="col-md-10 col-lg-8 mx-auto">
-                {{ homemd }}
-            </div>
-        </div>
-    </div>
-</main>
+			<div class="col-lg-2 mx-auto">
+				{% include 'includes/ltc-resources/sidebar.html' %}
+			</div>
+			<div class="col-lg-10 order-lg-first mx-auto">
+				<h3 class="text-danger">DRAFT</h3>
+				<div class="content-header-wrapper">
+					{{ headerMarkdown }}
+				</div>
+				<div class="ref-wrapper">
+					{{ sssomRefMarkdown }}
+				</div>
 
-{% endblock %}
+				{%  include 'includes/ltc-resources/diagrams.html' %}
+	 		</div>
+	 	</div>
+ 	</div>
+</main>
+{%  endblock %}

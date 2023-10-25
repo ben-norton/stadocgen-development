@@ -1,9 +1,0 @@
-erDiagram
-	 ObjectClassification ||--o{ ObjectClassification : Has
- 	 ObjectGroup ||--o{ ChronometricAge : Has
-	 ObjectGroup ||--o{ EcologicalContext : Has
-	 ObjectGroup ||--o{ GeographicContext : Has
-	 ObjectGroup ||--o{ GeologicalContext : Has
-	 ObjectGroup ||--o{ MeasurementOrFact : Has
-	 ObjectGroup ||--o{ ObjectClassification : Has
-	 ObjectGroup ||--o{ Taxon : Has

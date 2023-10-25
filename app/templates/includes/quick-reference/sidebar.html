@@ -2,6 +2,12 @@
     <h6>On this page</h6>
     <ul>
         <li><a href="#latimerCore">LatimerCore</a>
+        {% for v in grplists if v.class == 'ObjectGroup' %}
+        <li><a href="#{{ v }}">{{ v.class }}</a></li>
+        {% endfor %}
+        {% for v in grplists if not v.class == 'ObjectGroup' %}
+            <li><a href="#{{ v }}">{{ v.class }}</a></li>
+        {% endfor %}
     </ul>
 </div>
 

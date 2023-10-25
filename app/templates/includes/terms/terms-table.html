@@ -1,8 +1,7 @@
 <h2 id="5-vocabulary">5 Vocabulary</h2>
-Count: {{ terms|length }}
-  {% for k,v in terms.iterrows() %}
-      <div class="single-term-wrapper">
-    	<a id="{{ v['term_ns_name'] }}"></a>
+  {% for idx, v in terms.iterrows() %}
+	<span id="{{ v['compound_name']|replace('.','_') }}"></span>
+    <div class="term-table-wrapper">
         <div class="table-responsive print-avoid">
             <table class="table table-compact table-terms">
                 <thead>
@@ -65,6 +64,8 @@ Count: {{ terms|length }}
 
 						{% endif %}
 
+						{% if v['datatype'] is number %}
+						{% else %}
 						<tr>
 							<th scope="row">Datatype</th>
                             {% if v['datatype'] %}
@@ -73,20 +74,24 @@ Count: {{ terms|length }}
                             <td>array< self ></td>
                             {%  endif %}
 						</tr>
+						{% endif %}
 
-                        {%  if(v['rdf_type'] == 'http://www.w3.org/1999/02/22-rdf-syntax-ns#Property') %}
+						{%  if(v['rdf_type'] == 'http://www.w3.org/1999/02/22-rdf-syntax-ns#Property') %}
                         <tr>
                             <th scope="row">Belongs to Class</th>
                             <td>{{ v['class_name'] }}</td>
                         </tr>
                         {%  endif %}
 
-                        {% if v['is_required'] %}
                         <tr>
 							<th scope="row">Required</th>
 							<td>{{ v['is_required'] }}</td>
 						</tr>
-                        {%  endif %}
+
+                        <tr>
+							<th scope="row">Repeatable</th>
+							<td>{{ v['is_repeatable'] }}</td>
+						</tr>
 
                         <tr>
 							<th scope="row">RDF Type</th>
@@ -98,7 +103,7 @@ Count: {{ terms|length }}
 						</tr>
 				</tbody>
 			</table>
-            {% include 'includes/terms/sssom-collapse.html' %}
+            {% include 'includes/terms/sssom-table.html' %}
         </div>
-      </div>
-    {% endfor %}
+    </div>
+{% endfor %}

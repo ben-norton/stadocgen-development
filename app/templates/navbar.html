@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-ltc" id="main-nav">
 	<div class="container">
-	    <a class="navbar-brand d-flex align-items-center" href="/deprecated/ltc/">
+	    <a class="navbar-brand d-flex align-items-center" href="/ltc/">      
 	        <img class="me-3" src="https://tdwg.github.io/chrono/assets/theme/images/tdwg-logo-short.svg" alt="Latimer Core">
 			Latimer Core      
 	    </a>
@@ -21,6 +21,11 @@
 					<a class="nav-link {{ 'nav-link-active' if slug == 'quick-reference' }}"
 					href="{{ url_for('quickReference') }}">Guide</a>
 				</li>
+				<li class="navbar-item">
+					<a class="nav-link {{ 'nav-link-active' if slug == 'ltc-resources' }}"
+					href="{{ url_for('ltcResources') }}">Resources</a>
+				</li>
+
 				<li class="navbar-item">
 					<a class="nav-link" href="https://dwc.tdwg.org/">Darwin Core</a>
 				</li>

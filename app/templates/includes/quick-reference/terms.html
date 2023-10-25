@@ -9,19 +9,17 @@
         {% endfor %}
     </div>
     {% for k in v.terms %}
-        <div class="table-responsive">
+        <div class="table-responsive" id="{{ k[11] }}">
             <table class="table table-compact">
                 <thead>
                     <tr>
                         {%  if(k[7] == 'http://www.w3.org/1999/02/22-rdf-syntax-ns#Property') %}
                         <th class="property" colspan="2">
-                            <a id="{{ k[11] }}"></a>
                             <span class="title">{{ k[13] }}</span>
                             <span class="badge badge-property float-end">Property</span>
                         </th>
                         {%  elif(k[8] == 'http://www.w3.org/2000/01/rdf-schema#Class') %}
                         <th class="class" colspan="2">
-                            <a id="{{ k[11] }}"></a>
                             <span class="title">{{ k[13] }}</span>
                             <span class="badge badge-class float-end">Class</span>
                         </th>

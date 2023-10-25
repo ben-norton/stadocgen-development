@@ -8,13 +8,13 @@ configuration:
     - ltc-datatypes.csv
     - ltc-namespaces.csv
     - ltc-skos.csv
-    - ltc-sssom.csv.bak
+    - ltc-sssom.csv
     - ltc-terms-list.csv
   markdown:
     - home-content.md
     - quick-reference-header.md
+    - resources-header.md
+    - sssom-reference.md
     - terms-list-header.md
-    - sssom-header.md
   cmds:
     - to run application, enter flask run in root project folder
-

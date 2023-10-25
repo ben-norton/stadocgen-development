@@ -1,0 +1,32 @@
+{
+    "fields": [
+        {
+            "name": "namespace",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "class_name",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "term_local_name",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "datatype",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "compound_name",
+            "type": "string",
+            "format": "default"
+        }
+    ],
+    "missingValues": [
+        ""
+    ]
+}

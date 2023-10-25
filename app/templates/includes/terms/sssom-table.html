@@ -1,0 +1,64 @@
+  {% if v['mapping_justification'] is number %}
+            {% else %}
+                 <table class="table table-condensed table-sssom table-child">
+                    <thead>
+                        <tr>
+                            <th class="text-left" colspan="4">
+                                <a href="#sssom{{ idx }}" data-bs-toggle="collapse" class="th-collapser">
+                                    <span class="skos-th-label">
+                                        SKOS Mappings
+                                    </span>
+                                    <i class="fa"></i>
+                                </a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="sssom{{ idx }}" class="collapse show">
+                        <tr class="nested-thead-tr">
+                            <th class="col-w-4"></th>
+                            <th class="col-w-16">SKOS Type</th>
+                            <th class="col-w-25">Target URI</th>
+                            <th class="col-w-55">Justification</th>
+                        </tr>
+                        {%  for idx2,v2 in sssom.iterrows() %}
+                            {%  if v2['term_uri'] == v['term_uri'] and v2['subject_category'] == v['class_name'] %}
+                                <tr class="accordion-toggle collapsed"
+                                    id="accordion{{ idx }}"
+                                    data-bs-toggle="collapse"
+                                    data-bs-parent="#accordion{{ idx }}"
+                                    href="#collapse{{ idx2 }}-{{ idx }}"
+                                    aria-controls="collapse{{ idx2 }}-{{ idx }}">
+                                    <td class="indicator-td"><i class="fa"></i></td>
+                                    <td>Test</td>
+                                    <td>https://examples.com/ltc/term</td>
+                                    <td>This is justification and more justification</td>
+                                </tr>
+                                <tr class="hide-table-padding">
+                            <td colspan="4">
+                                <table class="table mb-0 nested-table collapse" id="collapse{{  idx2 }}-{{ idx }}">
+                                    <tbody>
+                                        <tr>
+                                            <th>Target Class</th>
+                                            <td>{{  v2['object_category'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Target Type</th>
+                                            <td>{{  v2['object_category'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Author</th>
+                                            <td>{{  v2['author_label'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Author ID</th>
+                                            <td>{{  v2['author_id'] }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                            {%  endif %}
+                        {%  endfor %}
+                    </tbody>
+                </table>
+            {% endif %}

@@ -16,19 +16,36 @@
 	<link rel="stylesheet" href="{{ url_for('static',filename='assets/theme/css/main.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static',filename='assets/theme/css/fontawesome-all.min.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static',filename='assets/theme/css/academicons.min.css') }}">
+
 	<link rel="stylesheet" href="{{ url_for('static',filename='assets/theme/css/pygments.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static',filename='custom/css/ltc.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static',filename='custom/css/print.css') }}" media="print">
+
 
 </head>
 <body>
 {% include 'navbar.html' %}
 {% block main %}
 {% endblock %}
+{% include 'includes/page-footer.html' %}
 
 	<script src="{{ url_for('static',filename='assets/theme/js/jquery.min.js') }}"></script>
 	<script src="{{ url_for('static',filename='assets/theme/js/popper.min.js') }}"></script>
 	<script src="{{ url_for('static',filename='assets/theme/js/bootstrap.min.js') }}"></script>
+	<script src="{{ url_for('static',filename='custom/js/fullscreen.js') }}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+	<script src="{{ url_for('static',filename='custom/js/svg-pan-zoom.js') }}"></script>
 
+	<script>
+		$(document).ready(function () {
+			mermaid.initialize({
+				theme: 'forest'
+			})
+			mermaidAPI.initialize({
+			  securityLevel: 'loose',
+			});
+		});
+
+	</script>
 </body>
 </html>
