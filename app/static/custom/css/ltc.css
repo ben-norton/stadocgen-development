@@ -149,6 +149,7 @@ table tbody tr td ul.td-list li {
 	display: inline-block;
 	float: left;
 	margin-right: 10px;
+	line-height: 1.8;
 }
 table tbody tr td ul.td-list li span {
 	padding: 0.2em 0.4em;
@@ -501,8 +502,21 @@ table.table-sssom tbody table.nested-table tbody tr th {
 }
 
 
-
-
+/* Logo ------------------------------------------- */
+main.ltc-content,
+header.header .container {
+	position: relative;
+}
+.logo-wrapper {
+	position: absolute;
+	right: 18%;
+	top: 100px;
+	z-index: 100;
+}
+.logo-wrapper img.ltc-logo {
+	max-width: 120px;
+	height: auto;
+}
 
 
 
@@ -555,21 +569,9 @@ table.table-sssom tbody table.nested-table tbody tr th {
 		column-gap: 12px;
 		-webkit-column-gap: 12px;
 	}
-	/*
-	table.table-sssom,
-	table.table-sssom tbody,
-	table.table-sssom tbody tr,
-	table.table-sssom tbody td {
-	  display: flex;
-	  flex-direction: column;
-	  width: 100%;
-	  word-break: break-all;
-	}
-	*/
 	table.table-sssom thead th:not(:first-child) {
         display: none;
     }
-
     table.table-sssom td {
         display: block;
     }
@@ -587,8 +589,6 @@ table.table-sssom tbody table.nested-table tbody tr th {
 		text-align: left;
 	}
 
-	table.table-child.table-sssom tbody tr td {
-	}
 	table tbody tr.skos-tr td span.w-50,
 	tr.skos-tr td span {
 		width: 100%;
@@ -596,7 +596,9 @@ table.table-sssom tbody table.nested-table tbody tr th {
 		line-height: 2;
 		border-right: none !important
 	}
-
+	.logo-wrapper {
+		display: none;
+	}
 }
 @media only screen and (max-width: 480px) {
 	main .container.content {

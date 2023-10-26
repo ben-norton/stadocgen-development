@@ -43,7 +43,7 @@
                                         </tr>
                                         <tr>
                                             <th>Target Type</th>
-                                            <td>{{  v2['object_category'] }}</td>
+                                            <td>{{  v2['object_type'] }}</td>
                                         </tr>
                                         <tr>
                                             <th>Author</th>
@@ -52,6 +52,9 @@
                                         <tr>
                                             <th>Author ID</th>
                                             <td>{{  v2['author_id'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><a href="{{ url_for('ltcResources') }}#sssom-ref">SSSOM Specification</a></td>
                                         </tr>
                                     </tbody>
                                 </table>

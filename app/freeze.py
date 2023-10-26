@@ -1,4 +1,3 @@
-from app import app
 from flask import Flask, render_template
 from flask_frozen import Freezer
 from markupsafe import Markup
@@ -7,7 +6,9 @@ import markdown2
 import pandas as pd
 from flask_flatpages import FlatPages, pygmented_markdown, pygments_style_defs
 
+app = Flask(__name__)
 freezer = Freezer(app)
+app.config.from_pyfile("config.py")
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FREEZER_DESTINATION'] = 'build'
 app.config['FREEZER_RELATIVE_URLS'] = True
@@ -15,7 +16,17 @@ app.config['FREEZER_IGNORE_MIMETYPE_WARNINGS'] = True
 
 @app.route('/pygments.css')
 def pygments_css():
-    return pygments_style_defs('tango'), 200, {'Content-Type': 'text/css'}
+    return pygments_style_defs('tango'), 200, {'Content-Type': 'text/css'}\
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html',
+                           pageTitle='404 Error'), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    return render_template('500.html',
+                           pageTitle='500 Unknown Error'), 500
 
 # Homepage with content stored in markdown file
 @app.route('/')
@@ -49,7 +60,6 @@ def ltcResources():
                            title='Resources',
                            slug='ltc-resources'
     )
-
 
 @app.route('/terms/')
 def terms():
@@ -100,6 +110,7 @@ def terms():
                            headerMarkdown=Markup(marked_text),
                            ltcCls=ltcCls,
                            terms=terms,
+                           sssom=sssom_df,
                            termsByClass=termsByClass,
                            pageTitle='Latimer Core Terms',
                            title='Terms List',
@@ -140,7 +151,6 @@ def quickReference():
                            title='Quick Reference',
                            slug='quick-reference'
     )
-
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "build":

@@ -1,13 +1,14 @@
 <div class="toc">
     <h6>On this page</h6>
     <ul>
-        <li><a href="#latimerCore">LatimerCore</a>
         {% for v in grplists if v.class == 'ObjectGroup' %}
         <li><a href="#{{ v }}">{{ v.class }}</a></li>
         {% endfor %}
         {% for v in grplists if not v.class == 'ObjectGroup' %}
             <li><a href="#{{ v }}">{{ v.class }}</a></li>
         {% endfor %}
+        <li></li>
+        <li><a href="#top"><em>Return to Top</em></a></li>
     </ul>
 </div>
 
