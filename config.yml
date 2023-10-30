@@ -6,8 +6,6 @@ configuration:
   description: |
     Python Flask Web Application that generates data standards documentation pages using
     markdown and a set of standardized CSV files.
-  scripts:
-    "start:dev": main.py
   stack:
     - python
     - flask

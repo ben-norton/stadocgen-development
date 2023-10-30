@@ -1,6 +1,6 @@
   {% if v['mapping_justification'] is number %}
             {% else %}
-                 <table class="table table-condensed table-sssom table-child">
+                 <table class="table table-condensed table-sssom table-child" data-toggle="table">
                     <thead>
                         <tr>
                             <th class="text-left" colspan="4">
@@ -15,10 +15,24 @@
                     </thead>
                     <tbody id="sssom{{ idx }}" class="collapse show">
                         <tr class="nested-thead-tr">
+                            <th class="col-w-16">Mapping Property
+                                <i class="fa fa-question-circle doc-help-tip" aria-hidden="true" data-bs-toggle="popover"
+                                   data-bs-content="The label of the predicate/relation of the mapping.<br>
+                                        URI: <a href='https://w3id.org/sssom/predicate_label'>https://w3id.org/sssom/predicate_label</a>"
+                                   data-bs-original-title="sssom:predicate_label"></i>
+                            </th>
+                            <th class="col-w-25 popover-container">Object URI
+                              <i class="fa fa-question-circle doc-help-tip" aria-hidden="true" data-bs-toggle="popover"
+                                   data-bs-content="The ID of the object of the mapping.<br>URI: <a href='http://www.w3.org/2002/07/owl#annotatedTarget'>http://www.w3.org/2002/07/owl#annotatedTarget</a>"
+                                   data-bs-original-title="sssom:object_id"></i>
+                            </th>
+                            <th class="col-w-55 popover-container">Justification
+                                <i class="fa fa-question-circle doc-help-tip" aria-hidden="true" data-bs-toggle="popover"
+                                   data-bs-content=" A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.<br>
+                                    URI: <a href='https://w3id.org/sssom/mapping_justification'>https://w3id.org/sssom/mapping_justification</a>"
+                                   data-bs-original-title="sssom:mapping_justification"></i>
+                            </th>
                             <th class="col-w-4"></th>
-                            <th class="col-w-16">SKOS Type</th>
-                            <th class="col-w-25">Target URI</th>
-                            <th class="col-w-55">Justification</th>
                         </tr>
                         {%  for idx2,v2 in sssom.iterrows() %}
                             {%  if v2['term_uri'] == v['term_uri'] and v2['subject_category'] == v['class_name'] %}
@@ -28,21 +42,31 @@
                                     data-bs-parent="#accordion{{ idx }}"
                                     href="#collapse{{ idx2 }}-{{ idx }}"
                                     aria-controls="collapse{{ idx2 }}-{{ idx }}">
+                                    <td data-th="Mapping Property: "><a href="{{ v2.predicate_id }}">{{  v2.predicate_label }}</a></td>
+                                    <td data-th="Object ID: ">{{ v2.object_id|urlize }}</td>
+                                    <td data-th="Justification: ">{{ v2.mapping_justification }}</td>
                                     <td class="indicator-td"><i class="fa"></i></td>
-                                    <td>Test</td>
-                                    <td>https://examples.com/ltc/term</td>
-                                    <td>This is justification and more justification</td>
                                 </tr>
                                 <tr class="hide-table-padding">
                             <td colspan="4">
-                                <table class="table mb-0 nested-table collapse" id="collapse{{  idx2 }}-{{ idx }}">
+                                <table class="table table-sssom-nested mb-0 nested-table collapse" id="collapse{{  idx2 }}-{{ idx }}">
                                     <tbody>
                                         <tr>
-                                            <th>Target Class</th>
+                                            <th>Object Category
+                                                 <i class="fa fa-question-circle doc-help-tip" aria-hidden="true" data-bs-toggle="popover"
+                                                    data-bs-content="The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary.<br>
+                                                    URI: <a href='https://w3id.org/sssom/object_category'>https://w3id.org/sssom/object_category</a>"
+                                                    data-bs-original-title="sssom:object_category"></i>
+                                            </th>
                                             <td>{{  v2['object_category'] }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Target Type</th>
+                                            <th>Object Type
+                                               <i class="fa fa-question-circle doc-help-tip" aria-hidden="true" data-bs-toggle="popover"
+                                                data-bs-content="The type of entity that is being mapped.<br>
+                                                URI: <a href='https://w3id.org/sssom/object_type'>https://w3id.org/sssom/object_type</a>"
+                                                data-bs-original-title="sssom:object_type"></i>
+                                            </th>
                                             <td>{{  v2['object_type'] }}</td>
                                         </tr>
                                         <tr>
@@ -51,10 +75,10 @@
                                         </tr>
                                         <tr>
                                             <th>Author ID</th>
-                                            <td>{{  v2['author_id'] }}</td>
+                                            <td>{{  v2['author_id']|urlize }}</td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2"><a href="{{ url_for('ltcResources') }}#sssom-ref">SSSOM Specification</a></td>
+                                            <td colspan="2" class="text-center"><a href="{{ url_for('ltcResources') }}#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
