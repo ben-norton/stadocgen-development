@@ -39,6 +39,12 @@ routes.py   Dynamic flask script
 * To launch dev server, for testing run *flask run* then open a browser to localhost:5000
 * To build documentation webpages, change to app directory then run *python freeze.py build*
 
+Documentation built using stadocgen must be pushed to the docs folder in a target repository. For LtC, the entire contents of the build folder must replace 
+the existing content in the docs folder (https://github.com/tdwg/ltc/tree/main/docs)
+In Windows, robocopy can be used to replace files in a target directory with a source. The following command will accomplish this task (before using, make sure to update the paths)
+robocopy G:\repos\stadocgen\app\build G:\repos\ltc\docs /mir
+Once the new build is pushed to the target repo, continue the standard protocol for updating a repository (create new branch with updated docs > pull request > approve > merge).
+
 #### Contact
 Ben Norton
 michaenorton.ben@gmail.com
