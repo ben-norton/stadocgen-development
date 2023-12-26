@@ -15,6 +15,7 @@ Built using Python Flask, the application transforms a set of CSV files into dat
 
 ```
 ├───app
+|   ├───archive     | Timestamped copies of csv and markdown files 
 │   ├───build       | Static html files generated using Frozen Flask (https://pythonhosted.org/Frozen-Flask/)
 │   ├───data        | Source data files in csv format
 │   │   ├───global

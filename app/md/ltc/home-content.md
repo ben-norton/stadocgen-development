@@ -1,47 +1,43 @@
-## <span class="text-danger">DRAFT</span>
 Latimer Core (LtC) is a data standard for describing collections, proposed by the Collection Descriptions Task Group. It has been designed to support the representation and discovery of groups of items that are encompassed in collections and their subcomponents. The LtC classes and their properties (collectively called terms) aim to represent information that describes these groups of things in enough detail to inform deeper discovery of the resources they contain.
 
+### Documentation
+#### Normative
+- [Normative Terms List](https://tdwg.github.io/ltc/terms/) - Official normative documentation for all classes and terms
 
-Getting started[](#getting-started)
------------------------------------
-
-*   [Quick Reference Guide](quick-reference/)
-*   [Normative Term List](terms/)
-*   The [LtC Wiki](https://github.com/tdwg/ltc/wiki/1.-Overview-of-Latimer-Core) provides an overview of Latimer Core's structure and purpose
-*   See how classes fit together in the [Standard Browser](https://rebrand.ly/tdwg-cd-standard-browser).
-*   Add or join a [Discussion](https://github.com/tdwg/ltc/discussions)
-
+#### Non-normative <a name="non-norm"></a>
+- [Quick Reference Guide](https://tdwg.github.io/ltc/quick-reference/) - Quick guide to the normative terms and definitions.
+- [LtC Resources](https://tdwg.github.io/ltc/quick-reference/) - Additional informative resources include Entity-Relationship Diagrams
+- [Latimer Core Wiki](https://github.com/tdwg/ltc/wiki) - introduction to Latimer Core's structure and purpose.
+- [LtC Standard Browser](https://rebrand.ly/tdwg-cd-standard-browser) - Novel interactive tool to explore the Latimer Core standard
+- [Discussion Board](https://github.com/tdwg/ltc/discussions) - Submit a question or provide feedback
+- [CITATION.CFF](https://github.com/tdwg/ltc/blob/main/CITATION.cff) - How to cite the standard, provide attribution and thus support the work of the authors and TDWG
+- [Implementation Guide and Use Cases](https://biss.pensoft.net/article/113766/)  
+  
 -------------
 ## Public Review 
 
-The Public Review for the Latimer Core Standard is planned for August 2023. Multiple ways will be available to contribute during the review period. Please read the following to determine which is best suited for you.
+The Public Review for the Latimer Core Standard is planned for December 2023. Multiple ways will be available to contribute during the review period. Please read the following to figure out which is best for you.
 
-### How to Participate in the Public Review
+Only the [Normative Term List](https://tdwg.github.io/ltc/terms/index.html) is subject to review. 
+All other documentation, including the [wiki](https://github.com/tdwg/ltc/wiki/1.-Overview-of-Latimer-Core) 
+and [resources page](https://tdwg.github.io/ltc/resources/), are non-normative and therefore not under formal review. The purpose of the non-normative documentation is to improve understanding and clarify the normative documentation.
 
-#### 1. Start Here
+### How to Participate
+#### Step 1. Explore the Standard
+Please begin by reviewing the subject of the public review, the normative terms list found here: [Normative Term List](https://tdwg.github.io/ltc/terms/)   
+To aid your review of the normative terms list, please take advantage of the collection of [non-normative documents and interactives](#non-norm) listed above
 
-We offer several ways to explore the standard during the review. To participate please begin with one or all of the following:
+#### Step 2. Provide Feedback on the Discussion Forum
+To provide feedback during the Public Review, please use the [discussion forum](https://github.com/tdwg/ltc/discussions). We will host open 
+question and answer sessions via Zoom on Thursdays from 10am - 11am EST beginning in January. Please 
+see the announcements in the discussion forum for additional information, including the Zoom link and 
+schedule. We are also willing to accommodate additional times upon request (contact below).
 
-1.  Read the wiki
-2.  Read the Quick Reference Guide
-3.  Read the Normative Term list
-4.  View the Standard Browser (Power BI)
-5.  Read the Implementation Guide and Use Cases
+The Public Review Moderator and LtC Team will create issues from the discussion forum when needed. 
+The discussion originator and applicable participants will be tagged on the issue. The LtC team will 
+respond to all comments and questions posted on the discussion forum within the 
+public review period. 
 
-#### 2. Provide Feedback
+For questions, comments, or critiques, please contact Ben Norton, Review Manager of Latimer Core 
+at [michaelnorton.ben@gmail.com](mailto:michaelnorton.ben@gmail.com).
 
-1.  For general questions and statements, please use the [discussion forum](https://github.com/tdwg/ltc/discussions).
-2.  For issues targeted to specific terms or sections of the wiki, please use the issue tracker and select the appropriate template.
-3.  We will host open question and answer sessions via Zoom on Thursdays from 10am - 11am EST. The zoom link will be forthcoming. We are also willing to accomodate additional times upon request (contact below).
-
-If you are unsure, we encourage everyone to start on the discussion forum. The Public Review Moderator and LtC Team will create issues from the discussion forum when needed. The discussion originator and applicable participants will be tagged on the issue.
-
-For questions, comments, or critiques, please contact Ben Norton, Review Manager of Latimer Core at [michaelnorton.ben@gmail.com](mailto:michaelnorton.ben@gmail.com).
-
-Standard live and die based on community. Without community support, a standard is just a organized list of random words. 
-The public review is one of the best opportunities to support standards and the standardization process. 
-You are free to leave public feedback or post anonymously by sending me a direct message over slack or email. 
-I even accept notes tied to Game of Thrones style ravens.  
-Thanks!  
-\- Ben Norton  
-[michaelnorton.ben@gmail.com](mailto:michaelnorton.ben@gmail.com)

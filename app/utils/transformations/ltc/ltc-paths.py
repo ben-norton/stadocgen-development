@@ -8,6 +8,6 @@ filepath = Path(src)
 targetpath = filepath.parents[1] / 'ltc-docs'
 ltc_source_df = pd.read_csv(src, encoding='utf8')
 # Place copy in new folder with new filename
-ltccsv = os.path.join(targetpath,r'ltc-terms.csv')
+ltccsv = os.path.join(targetpath,r'ltc-termlist.csv')
 ltc_source_df.to_csv(ltccsv, index=False, encoding='utf8')
 

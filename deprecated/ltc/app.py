@@ -37,12 +37,12 @@ def skosMappings():
 
 @app.route('/terms')
 def terms():
-    terms_md = 'templates/markdown/terms-list-header.md'
+    terms_md = 'templates/markdown/termlist-header.md'
     markdown.markdownFromFile(input=terms_md,
-                              output='templates/includes/terms/terms-list-header.html',
+                              output='templates/includes/termlist/termlist-list-header.html',
                               extensions=['tables'])
     #Main Datafile
-    terms_csv = 'data/ltc-set/ltc-terms-list.csv'
+    terms_csv = 'data/ltc-set/ltc-termlist-list.csv'
     df = pd.read_csv(terms_csv, encoding='utf8')
     terms = df.dropna()
 
@@ -56,16 +56,16 @@ def terms():
     for i in grpdict2:
         termsByClass.append({
             'class': i,
-            'terms': grpdict2[i]
+            'termlist': grpdict2[i]
         })
 
     return render_template(
-        "templates/terms.html",
+        "templates/termlist.html",
         ltcCls=ltcCls,
         terms=terms,
         termsByClass=termsByClass,
         title = 'Terms List',
-        slug='terms-list'
+        slug='termlist-list'
     )
 
 @app.route('/quick-reference')
@@ -86,7 +86,7 @@ def quickReference():
     for i in grpdict:
         grplists.append({
             'class': i,
-            'terms': grpdict[i]
+            'termlist': grpdict[i]
         })
 
     return render_template(

@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 {% block main %}
 <main>
-	{% include 'includes/terms/includes/terms/page-header.html' %}
+	{% include 'includes/termlist/includes/termlist/page-header.html' %}
 	<div class="container content">
 		<div class="row">
 			<div class="col-lg-3 mx-auto">	
-				{% include 'includes/terms/includes/terms/sidebar.html' %}
+				{% include 'includes/termlist/includes/termlist/sidebar.html' %}
 			</div>
 			<div class="col-lg-9 order-lg-first mx-auto">
 			    <h1 id="ltc-list-of-terms">Latimer Core List of Terms</h1>
                 <h3 class="text-danger">DRAFT</h3>
-                {%  include 'includes/terms/includes/terms/terms-header.html' %}
-				{% include 'includes/terms/includes/terms/terms-index.html' %}
-				{% include 'includes/terms/includes/terms/terms-table.html' %}
+                {%  include 'includes/termlist/includes/termlist/termlist-header.html' %}
+				{% include 'includes/termlist/includes/termlist/termlist-index.html' %}
+				{% include 'includes/termlist/includes/termlist/termlist-table.html' %}
             </div>
         </div>
  	</div>

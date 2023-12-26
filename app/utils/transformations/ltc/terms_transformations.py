@@ -8,11 +8,11 @@ filepath = Path(src)
 targetpath = filepath.parents[1] / 'ltc-docs'
 ltc_source_df = pd.read_csv(src, encoding='utf8')
 # 2. Place copy in new folder with new filename
-ltccsv = os.path.join(targetpath,r'ltc-terms-list.csv')
+ltccsv = os.path.join(targetpath,r'ltc-termlist.csv')
 ltc_source_df.to_csv(ltccsv, index=False, encoding='utf8')
 
-ns_csv = '../../../data/ltc/ltc-docs/ltc-namespaces.csv'
-newsrc = '../../../data/ltc/ltc-docs/ltc-terms-list.csv'
+ns_csv = '../../../data/ltc/ltc-source/ltc-namespaces.csv'
+newsrc = '../../../data/ltc/ltc-docs/ltc-termlist.csv'
 
 ltc_df = pd.read_csv(newsrc, encoding="utf8")
 # Rename Columns
@@ -36,10 +36,6 @@ ltc_df['term_ns_name'] = ltc_df['namespace'].astype(str) + ltc_df['term_local_na
 
 # Write transformations to file
 ltc_df.to_csv(newsrc, index=False, encoding='utf8')
-
-
-
-
 
 ltc_df = pd.read_csv(newsrc, encoding="utf8")
 # Datatypes

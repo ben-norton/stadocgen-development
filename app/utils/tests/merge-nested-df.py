@@ -1,7 +1,7 @@
 import pandas as pd
 from jinja2 import Template
 
-terms_csv = '../../data/ltc/ltc-docs/ltc-terms-list.csv'
+terms_csv = '../../data/ltc/ltc-docs/ltc-termlist-list.csv'
 terms_df = pd.read_csv(terms_csv, encoding='utf8')
 
 skoscsv = '../../data/ltc/ltc-docs/ltc-skos.csv'
@@ -21,6 +21,6 @@ ltcdf = pd.merge(
 ltcdf3 = terms_df.merge(
     skos_df[['term_uri', 'skos_mappingRelation', 'related_termName']], on=['term_uri'], how='right'
 )
-terms.to_csv('terms.csv',index=False)
+terms.to_csv('termlist.csv',index=False)
 ltcdf.to_csv('ltcdf.csv',index=False)
 ltcdf3.to_csv('ltcdf3.csv',index=True)

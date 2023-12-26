@@ -4,19 +4,15 @@ from markupsafe import Markup
 import sys
 import markdown2
 import pandas as pd
-from flask_flatpages import FlatPages, pygmented_markdown, pygments_style_defs
+from flask_flatpages import pygmented_markdown, pygments_style_defs
 
 app = Flask(__name__)
 freezer = Freezer(app)
-app.config.from_pyfile("config.py")
-app.config['TEMPLATES_AUTO_RELOAD'] = True
+
+#app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FREEZER_DESTINATION'] = 'build'
 app.config['FREEZER_RELATIVE_URLS'] = True
-app.config['FREEZER_IGNORE_MIMETYPE_WARNINGS'] = True
-
-@app.route('/pygments.css')
-def pygments_css():
-    return pygments_style_defs('tango'), 200, {'Content-Type': 'text/css'}\
+#app.config['FREEZER_IGNORE_MIMETYPE_WARNINGS'] = True
 
 @app.errorhandler(404)
 def page_not_found(error):
@@ -27,6 +23,7 @@ def page_not_found(error):
 def internal_error(error):
     return render_template('500.html',
                            pageTitle='500 Unknown Error'), 500
+
 
 # Homepage with content stored in markdown file
 @app.route('/')
@@ -40,30 +37,9 @@ def home():
                            title='Home',
                            slug='home')
 
-
-@app.route('/resources/')
-def ltcResources():
-    header_mdfile = 'md/ltc/resources-header.md'
-    marked_text = ''
-    with open(header_mdfile, encoding="utf8") as f:
-        marked_text = markdown2.markdown(f.read(), extras=["tables", "fenced-code-blocks"])
-
-    sssom_mdfile = 'md/ltc/sssom-reference.md'
-    marked_sssom = ''
-    with open(sssom_mdfile, encoding="utf8") as f:
-        marked_sssom = markdown2.markdown(f.read(), extras=["tables", "fenced-code-blocks"])
-
-    return render_template('resources.html',
-                           headerMarkdown=Markup(marked_text),
-                           sssomRefMarkdown=Markup(marked_sssom),
-                           pageTitle='Latimer Core Resources',
-                           title='Resources',
-                           slug='ltc-resources'
-    )
-
 @app.route('/terms/')
 def terms():
-    header_mdfile = 'md/ltc/terms-list-header.md'
+    header_mdfile = 'md/ltc/termlist-header.md'
     marked_text = ''
     with open(header_mdfile, encoding="utf8") as f:
         marked_text = markdown2.markdown(f.read(), extras=["tables", "fenced-code-blocks"])
@@ -103,18 +79,18 @@ def terms():
     for i in grpdict2:
         termsByClass.append({
             'class': i,
-            'terms': grpdict2[i]
+            'termlist': grpdict2[i]
         })
 
-    return render_template('terms.html',
+    return render_template('termlist.html',
                            headerMarkdown=Markup(marked_text),
                            ltcCls=ltcCls,
                            terms=terms,
                            sssom=sssom_df,
                            termsByClass=termsByClass,
                            pageTitle='Latimer Core Terms',
-                           title='Terms List',
-                           slug='terms-list'
+                           title='Term List',
+                           slug='termlist'
     )
 
 @app.route('/quick-reference/')
@@ -125,7 +101,7 @@ def quickReference():
         marked_text = markdown2.markdown(f.read())
 
     # Quick Reference Main
-    df = pd.read_csv('data/ltc/ltc-docs/ltc-terms-list.csv', encoding='utf8')
+    df = pd.read_csv('data/ltc/ltc-docs/ltc-termlist.csv', encoding='utf8')
     df['examples'] = df['examples'].str.replace(r'"', '')
     df['definition'] = df['definition'].str.replace(r'"', '')
     df['usage'] = df['usage'].str.replace(r'"', '')
@@ -133,15 +109,15 @@ def quickReference():
 
     # Group by Class
     grpdict = df.fillna(-1).groupby('class_name')[['namespace', 'term_local_name', 'label', 'definition',
-                                                   'usage', 'notes','examples', 'rdf_type', 'class_name',
+                                                   'usage', 'notes', 'examples', 'rdf_type', 'class_name',
                                                    'is_required', 'is_repeatable', 'compound_name',
-                                                   'datatype', 'term_ns_name']].apply(
+                                                   'datatype', 'term_ns_name', 'term_uri']].apply(
         lambda g: list(map(tuple, g.values.tolist()))).to_dict()
     grplists = []
     for i in grpdict:
         grplists.append({
             'class': i,
-            'terms': grpdict[i]
+            'termlist': grpdict[i]
         })
 
     return render_template('quick-reference.html',
@@ -151,6 +127,27 @@ def quickReference():
                            title='Quick Reference',
                            slug='quick-reference'
     )
+
+@app.route('/resources/')
+def docResources():
+    header_mdfile = 'md/ltc/resources-header.md'
+    marked_text = ''
+    with open(header_mdfile, encoding="utf8") as f:
+        marked_text = markdown2.markdown(f.read(), extras=["tables", "fenced-code-blocks"])
+
+    sssom_mdfile = 'md/ltc/sssom-reference.md'
+    marked_sssom = ''
+    with open(sssom_mdfile, encoding="utf8") as f:
+        marked_sssom = markdown2.markdown(f.read(), extras=["tables", "fenced-code-blocks"])
+
+    return render_template('resources.html',
+                           headerMarkdown=Markup(marked_text),
+                           sssomRefMarkdown=Markup(marked_sssom),
+                           pageTitle='Latimer Core Resources',
+                           title='Resources',
+                           slug='resources'
+    )
+
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "build":
