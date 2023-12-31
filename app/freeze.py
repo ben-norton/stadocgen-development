@@ -4,9 +4,8 @@ from markupsafe import Markup
 import sys
 import markdown2
 import pandas as pd
-from flask_flatpages import pygmented_markdown, pygments_style_defs
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 freezer = Freezer(app)
 
 #app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -26,6 +25,7 @@ def internal_error(error):
 
 
 # Homepage with content stored in markdown file
+
 @app.route('/')
 def home():
     home_mdfile = 'md/ltc/home-content.md'
@@ -45,20 +45,23 @@ def terms():
         marked_text = markdown2.markdown(f.read(), extras=["tables", "fenced-code-blocks"])
 
     # Terms
-    terms_csv = 'data/ltc/ltc-docs/ltc-terms-list.csv'
-    terms_df = pd.read_csv(terms_csv, encoding='utf8')
+    terms_csv = 'data/ltc/ltc-docs/ltc-termlist.csv'
+    terms_df = pd.read_csv(terms_csv)
 
     skoscsv = 'data/ltc/ltc-docs/ltc-skos.csv'
-    skos_df = pd.read_csv(skoscsv, encoding='utf8')
+    skos_df = pd.read_csv(skoscsv)
 
     sssomcsv = 'data/ltc/ltc-docs/ltc-sssom.csv'
-    sssom_df = pd.read_csv(sssomcsv, encoding='utf8')
+    sssom_df = pd.read_csv(sssomcsv)
 
     terms_skos_df1 = pd.merge(
-        terms_df, skos_df[['term_uri', 'skos_mappingRelation', 'related_termName']], on=['term_uri'], how='left'
+        terms_df, skos_df[['term_iri', 'skos_mappingRelation', 'related_termName']],
+        on=['term_iri'], how='left'
     )
     terms_skos_df = pd.merge(
-        terms_skos_df1, sssom_df[['compound_name', 'predicate_label', 'object_id', 'object_category', 'object_label', 'mapping_justification' ]],
+        terms_skos_df1, sssom_df[['compound_name', 'predicate_label', 'object_id',
+                                  'object_category', 'object_label',
+                                  'mapping_justification']],
         on=['compound_name'], how='left'
     )
 
@@ -91,17 +94,18 @@ def terms():
                            pageTitle='Latimer Core Terms',
                            title='Term List',
                            slug='termlist'
-    )
+                           )
 
 @app.route('/quick-reference/')
 def quickReference():
+
     header_mdfile = 'md/ltc/quick-reference-header.md'
     marked_text = ''
-    with open(header_mdfile, encoding="utf8") as f:
+    with open(header_mdfile) as f:
         marked_text = markdown2.markdown(f.read())
 
     # Quick Reference Main
-    df = pd.read_csv('data/ltc/ltc-docs/ltc-termlist.csv', encoding='utf8')
+    df = pd.read_csv('data/ltc/ltc-docs/ltc-termlist.csv')
     df['examples'] = df['examples'].str.replace(r'"', '')
     df['definition'] = df['definition'].str.replace(r'"', '')
     df['usage'] = df['usage'].str.replace(r'"', '')
@@ -111,7 +115,7 @@ def quickReference():
     grpdict = df.fillna(-1).groupby('class_name')[['namespace', 'term_local_name', 'label', 'definition',
                                                    'usage', 'notes', 'examples', 'rdf_type', 'class_name',
                                                    'is_required', 'is_repeatable', 'compound_name',
-                                                   'datatype', 'term_ns_name', 'term_uri']].apply(
+                                                   'datatype', 'term_ns_name', 'term_iri']].apply(
         lambda g: list(map(tuple, g.values.tolist()))).to_dict()
     grplists = []
     for i in grpdict:
@@ -126,18 +130,17 @@ def quickReference():
                            pageTitle='Latimer Core Quick Reference Guide',
                            title='Quick Reference',
                            slug='quick-reference'
-    )
+                           )
+
 
 @app.route('/resources/')
 def docResources():
     header_mdfile = 'md/ltc/resources-header.md'
-    marked_text = ''
-    with open(header_mdfile, encoding="utf8") as f:
+    with open(header_mdfile) as f:
         marked_text = markdown2.markdown(f.read(), extras=["tables", "fenced-code-blocks"])
 
     sssom_mdfile = 'md/ltc/sssom-reference.md'
-    marked_sssom = ''
-    with open(sssom_mdfile, encoding="utf8") as f:
+    with open(sssom_mdfile) as f:
         marked_sssom = markdown2.markdown(f.read(), extras=["tables", "fenced-code-blocks"])
 
     return render_template('resources.html',
@@ -146,11 +149,13 @@ def docResources():
                            pageTitle='Latimer Core Resources',
                            title='Resources',
                            slug='resources'
-    )
+                           )
+
+
 
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "build":
         freezer.freeze()
     else:
-        freezer.run(debug=True,port=8000)
+        app.run(port=8000)

@@ -6,7 +6,7 @@ import argparse
 from pathlib import Path, PurePath
 # Generate Table Schemas for all CSVs in the Path Provided.
 # Saves the Schemas to a Subdirectory of the Source called 'schemas'
-# Example: python csv-schemas.py -p ..\data\ltc\ltc-docs\
+# Example: python csvw-schemas.py -p ..\data\ltc\ltc-docs\
 
 parser = argparse.ArgumentParser(description='Enter Paths')
 parser.add_argument('-p', '--path', help='Path to CSV (using backslashes)', required=True)

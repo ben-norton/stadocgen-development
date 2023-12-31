@@ -3,9 +3,6 @@ from flask import render_template, request, jsonify
 from markupsafe import Markup
 import markdown2
 import pandas as pd
-from flask_flatpages import pygmented_markdown, pygments_style_defs
-
-
 
 @app.errorhandler(404)
 def page_not_found(error):
@@ -43,7 +40,7 @@ def terms():
         marked_text = markdown2.markdown(f.read(), extras=["tables", "fenced-code-blocks"])
 
     # Terms
-    terms_csv = 'app/data/ltc/ltc-docs/ltc-terms-list.csv'
+    terms_csv = 'app/data/ltc/ltc-docs/ltc-termlist.csv'
     terms_df = pd.read_csv(terms_csv, encoding='utf8')
 
     skoscsv = 'app/data/ltc/ltc-docs/ltc-skos.csv'
@@ -53,7 +50,7 @@ def terms():
     sssom_df = pd.read_csv(sssomcsv, encoding='utf8')
 
     terms_skos_df1 = pd.merge(
-        terms_df, skos_df[['term_uri', 'skos_mappingRelation', 'related_termName']], on=['term_uri'], how='left'
+        terms_df, skos_df[['term_iri', 'skos_mappingRelation', 'related_termName']], on=['term_iri'], how='left'
     )
     terms_skos_df = pd.merge(
         terms_skos_df1, sssom_df[['compound_name', 'predicate_label', 'object_id', 'object_category', 'object_label', 'mapping_justification' ]],
@@ -109,7 +106,7 @@ def quickReference():
     grpdict = df.fillna(-1).groupby('class_name')[['namespace', 'term_local_name', 'label', 'definition',
                                                    'usage', 'notes', 'examples', 'rdf_type', 'class_name',
                                                    'is_required', 'is_repeatable', 'compound_name',
-                                                   'datatype', 'term_ns_name', 'term_uri']].apply(
+                                                   'datatype', 'term_ns_name', 'term_iri']].apply(
         lambda g: list(map(tuple, g.values.tolist()))).to_dict()
     grplists = []
     for i in grpdict:

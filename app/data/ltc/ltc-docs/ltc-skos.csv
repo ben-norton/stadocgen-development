@@ -1,4 +1,4 @@
-term_uri,skos_mappingRelation,related_termName,term_local_name,term_ns_name
+term_iri,skos_mappingRelation,related_termName,term_local_name,term_ns_name
 http://rs.tdwg.org/ltc/terms/Address,narrowMatch,https://schema.org/PostalAddress,Address,ltc:Address
 http://rs.tdwg.org/ltc/terms/addressType,broadMatch,https://schema.org/contactType,addressType,ltc:addressType
 http://rs.tdwg.org/ltc/terms/hasIdentifier,broadMatch,http://purl.org/dc/terms/relation,hasIdentifier,ltc:hasIdentifier
@@ -71,7 +71,7 @@ http://rs.tdwg.org/ltc/terms/Reference,narrowMatch,http://rs.tdwg.org/abcd/terms
 http://rs.tdwg.org/ltc/terms/referenceDetails,broadMatch,http://rs.tdwg.org/abcd/terms/details,referenceDetails,ltc:referenceDetails
 http://rs.tdwg.org/ltc/terms/referenceName,broadMatch,http://purl.org/dc/terms/title,referenceName,ltc:referenceName
 http://rs.tdwg.org/ltc/terms/referenceType,broadMatch,http://purl.org/dc/terms/type,referenceType,ltc:referenceType
-http://rs.tdwg.org/ltc/terms/resourceURI,broadMatch,http://rs.tdwg.org/abcd/terms/resourceURI,resourceURI,ltc:resourceURI
+http://rs.tdwg.org/ltc/terms/resourceIRI,broadMatch,http://rs.tdwg.org/abcd/terms/resourceURI,resourceIRI,ltc:resourceIRI
 http://rs.tdwg.org/ltc/terms/ResourceRelationship,closeMatch,http://rs.tdwg.org/dwc/terms/ResourceRelationship,ResourceRelationship,ltc:ResourceRelationship
 http://rs.tdwg.org/ltc/terms/relatedResourceName,broadMatch,http://purl.org/dc/terms/title,relatedResourceName,ltc:relatedResourceName
 http://rs.tdwg.org/ltc/terms/relationshipOfResource,closeMatch,http://rs.tdwg.org/dwc/terms/relationshipOfResource,relationshipOfResource,ltc:relationshipOfResource

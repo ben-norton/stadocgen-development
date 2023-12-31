@@ -1,0 +1,27 @@
+{
+    "fields": [
+        {
+            "name": "namespace",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "tdwgutility_organizedInClass",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "term_localName",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "datatype",
+            "type": "string",
+            "format": "default"
+        }
+    ],
+    "missingValues": [
+        ""
+    ]
+}
