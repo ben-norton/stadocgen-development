@@ -32,12 +32,12 @@ The creation of collection-level records is intended to promote visibility and u
 **Bibliographic citation**
 : Latimer Core Maintenance Group. 2022. Latimer Core List of Terms. Biodiversity Information Standards (TDWG). <http://rs.tdwg.org/ltc/doc/list/yyyy-mm-dd>
 
-## 1 Introduction <span id="1-introduction"><span>
+## 1 Introduction <span id="1-introduction"></span>
 ### 1.1 Status of the content of this document <span id="11-status-of-the-content-of-this-document"></span>
 Sections 2 through 3 are normative, except for Table 1. In Section 4 and its subparts, the values of the Normative IRI, Definition, Required, and Repeatable are normative. The value of Usage (if it exists for a given term) is normative in that it specifies how a borrowed term should be used as part of Latimer Core. The values of Term Name is non-normative, although one can expect that the namespace abbreviation prefix is one commonly used for the term namespace. Labels and the values of all other properties (such as notes) are non-normative.
 
 ### 1.2 RFC 2119 key words <span id="12-rfc-2119-key-words"></span>
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
+The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in BCP 14 [RFC 2119](https://tools.ietf.org/html/rfc2119) and [RFC 8174](https://datatracker.ietf.org/doc/html/rfc8174) when, and only when, they appear in all capitals, as shown here.
 
 ### 1.3 Categories of terms <span id="13-categories-of-terms"></span>
 A Latimer Core (LtC) record is a description of a grouping of collection objects using the LtC vocabularies. It is primarily focused on the description of natural science collections, but not exclusively. The terms in this document can be loosely grouped into several categories.

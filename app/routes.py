@@ -1,8 +1,11 @@
+import yaml
+
 from app import app
 from flask import render_template, request, jsonify
 from markupsafe import Markup
 import markdown2
 import pandas as pd
+from yaml import SafeLoader, FullLoader
 
 @app.errorhandler(404)
 def page_not_found(error):
@@ -35,7 +38,7 @@ def home():
 @app.route('/terms')
 def terms():
     header_mdfile = 'app/md/ltc/termlist-header.md'
-    marked_text = ''
+
     with open(header_mdfile, encoding="utf8") as f:
         marked_text = markdown2.markdown(f.read(), extras=["tables", "fenced-code-blocks"])
 
