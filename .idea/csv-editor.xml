@@ -234,27 +234,6 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="\app\utils\csvw\buurt.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\app\utils\tests\ltcdf.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\app\utils\tests\ltcdf3.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="\deprecated\ltc\data\ltc-rs.tdwg.org\constants.csv">
           <value>
             <Attribute>
