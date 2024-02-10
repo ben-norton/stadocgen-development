@@ -1,1 +1,5 @@
+## Overview
 This document is intended to be an easy-to-read reference the currently recommended terms of the Latimer Core Standard. This document is not part of the standard. It draws on the term names and definitions from the normative part of the standard and combines them with comments and examples that are not normative, but that are meant to help people to use the terms consistently. The category LatimerCore corresponds to the parent class, which is a special category term used to group the rest of the terms for convenience. Comprehensive metadata for current and obsolete terms in human readable form are found in a list of terms document. <em>List of files and types</em> can be found in the Latimer Core repository.
+
+## Required Terms
+The table below provides a summary of the required terms in Latimer Core. Term requirements are subject to the use of the parent class. Terms that belong to an optional class are required if and only if their parent class is used in a Latimer Core record. 

@@ -36,7 +36,7 @@ routes.py   Dynamic flask script
 ```
 
 ### Commands
-* To launch dev server, for testing run *flask run* then open a browser to localhost:5000
+* To launch dev server, for testing run *flask run* from then project root directory then open a browser to localhost:5000
 * To build documentation webpages, change to app directory then run *python freeze.py build*
 Documentation built using StaDocGen must be pushed to the docs folder in a target repository. For LtC, 
 * the entire contents of the build folder must replace the existing content in the docs folder 

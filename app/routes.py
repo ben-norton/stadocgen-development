@@ -1,11 +1,8 @@
-import yaml
-
 from app import app
 from flask import render_template, request, jsonify
 from markupsafe import Markup
 import markdown2
 import pandas as pd
-from yaml import SafeLoader, FullLoader
 
 @app.errorhandler(404)
 def page_not_found(error):
@@ -118,12 +115,19 @@ def quickReference():
             'termlist': grpdict[i]
         })
 
+    # Required values
+    terms_df = df[['namespace', 'term_local_name', 'label', 'class_name',
+                   'is_required', 'rdf_type', 'compound_name']].sort_values(by=['class_name'])
+    required_df = terms_df.loc[(terms_df['is_required'] == True) &
+                               (terms_df['rdf_type'] == 'http://www.w3.org/1999/02/22-rdf-syntax-ns#Property')]
+
     return render_template('quick-reference.html',
                            headerMarkdown=Markup(marked_text),
                            grplists=grplists,
                            pageTitle='Latimer Core Quick Reference Guide',
                            title='Quick Reference',
-                           slug='quick-reference'
+                           slug='quick-reference',
+                           requiredTerms=required_df
     )
 
 @app.route('/resources')
