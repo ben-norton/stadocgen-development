@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 {% block main %}
-<main id="top">
-	{% include 'includes/page-header.html' %}
-	<div class="container content">
-		<div class="row">
-			<div class="col-lg-3 mx-auto">
-				{% include 'includes/quick-reference/sidebar.html' %}
-			</div>
-			<div class="col-lg-9 order-lg-first mx-auto">
-                <h3 class="text-danger">DRAFT</h3>
-				<div class="content-header-wrapper">
-	                {{ headerMarkdown }}
-				</div>
-                {%  include 'includes/quick-reference/required-terms.html' %}
-                {%  include 'includes/quick-reference/termlist.html' %}
-	 		</div>
-	 	</div>
- 	</div>
-</main>
+    <main id="top">
+        {% include 'includes/page-header.html' %}
+        <div class="container content">
+            <div class="row">
+                <div class="col-lg-3 mx-auto">
+                    {% include 'includes/quick-reference/sidebar.html' %}
+                </div>
+                <div class="col-lg-9 order-lg-first mx-auto">
+                    <h3 class="text-danger">DRAFT</h3>
+                    <div class="content-header-wrapper">
+                        {{ headerMarkdown }}
+                    </div>
+                    {%  include 'includes/quick-reference/required-terms.html' %}
+                    {%  include 'includes/quick-reference/termlist.html' %}
+                </div>
+            </div>
+        </div>
+    </main>
 {%  endblock %}

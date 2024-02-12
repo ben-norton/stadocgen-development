@@ -98,14 +98,13 @@ def terms():
 
 @app.route('/quick-reference/')
 def quickReference():
-
     header_mdfile = 'md/ltc/quick-reference-header.md'
     marked_text = ''
-    with open(header_mdfile) as f:
+    with open(header_mdfile, encoding="utf8") as f:
         marked_text = markdown2.markdown(f.read())
 
     # Quick Reference Main
-    df = pd.read_csv('data/ltc/ltc-docs/ltc-termlist.csv')
+    df = pd.read_csv('data/ltc/ltc-docs/ltc-termlist.csv', encoding='utf8')
     df['examples'] = df['examples'].str.replace(r'"', '')
     df['definition'] = df['definition'].str.replace(r'"', '')
     df['usage'] = df['usage'].str.replace(r'"', '')
@@ -124,14 +123,20 @@ def quickReference():
             'termlist': grpdict[i]
         })
 
+    # Required values
+    terms_df = df[['namespace', 'term_local_name', 'label', 'class_name',
+                   'is_required', 'rdf_type', 'compound_name']].sort_values(by=['class_name'])
+    required_df = terms_df.loc[(terms_df['is_required'] == True) &
+                               (terms_df['rdf_type'] == 'http://www.w3.org/1999/02/22-rdf-syntax-ns#Property')]
+
     return render_template('quick-reference.html',
                            headerMarkdown=Markup(marked_text),
                            grplists=grplists,
                            pageTitle='Latimer Core Quick Reference Guide',
                            title='Quick Reference',
-                           slug='quick-reference'
+                           slug='quick-reference',
+                           requiredTerms=required_df
                            )
-
 
 @app.route('/resources/')
 def docResources():

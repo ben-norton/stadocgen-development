@@ -44,6 +44,10 @@ In Windows, robocopy can be used to replace files in a target directory with a s
 robocopy C:\repos\stadocgen\app\build G:\repos\ltc\docs /mir
 Once the new build is pushed to the target repo, continue the standard protocol for updating a repository (create new branch with updated docs > pull request > approve > merge).  
 
+### Important Changes between routes.py and freeze.py
+1. In freeze.py, all route names must be bound with both leading and trailing forward slashes.
+2. When refreshing freeze.py with changes to routes.py, the leading 'app/' must be removed from every reference to an external files (e.g., markdown content files) 
+
 LtC Pipeline
 Source: https://github.com/ben-norton/stadocgen/tree/main/app/build
 Target: https://github.com/tdwg/ltc/tree/main/docs
