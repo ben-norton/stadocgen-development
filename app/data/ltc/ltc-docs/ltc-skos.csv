@@ -33,7 +33,7 @@ http://rs.tdwg.org/ltc/terms/hasSchemeMeasurementOrFact,broadMatch,http://purl.o
 http://rs.tdwg.org/ltc/terms/hasSchemeTerm,broadMatch,http://purl.org/dc/terms/relation,hasSchemeTerm,ltc:hasSchemeTerm
 http://rs.tdwg.org/ltc/terms/schemeName,broadMatch,http://purl.org/dc/terms/title,schemeName,ltc:schemeName
 http://rs.tdwg.org/ltc/terms/MeasurementOrFact,closeMatch,http://rs.tdwg.org/dwc/terms/MeasurementOrFact,MeasurementOrFact,ltc:MeasurementOrFact
-http://rs.tdwg.org/ltc/terms/hasObjectClassification,broadMatch,http://purl.org/dc/terms/relation,hasObjectClassification,ltc:hasObjectClassification
+http://rs.tdwg.org/ltc/terms/hasParentObjectClassification,broadMatch,http://purl.org/dc/terms/relation,hasParentObjectClassification,ltc:hasParentObjectClassification
 http://rs.tdwg.org/ltc/terms/objectClassificationName,broadMatch,http://purl.org/dc/terms/title,objectClassificationName,ltc:objectClassificationName
 http://rs.tdwg.org/ltc/terms/ObjectGroup,broadMatch,http://purl.org/dc/dcmitype/Collection,ObjectGroup,ltc:ObjectGroup
 http://rs.tdwg.org/ltc/terms/alternativeCollectionName,broadMatch,http://purl.org/dc/terms/title,alternativeCollectionName,ltc:alternativeCollectionName
@@ -45,6 +45,7 @@ http://rs.tdwg.org/ltc/terms/hasChronometricAge,broadMatch,http://purl.org/dc/te
 http://rs.tdwg.org/ltc/terms/hasCollectionStatusHistory,broadMatch,http://purl.org/dc/terms/relation,hasCollectionStatusHistory,ltc:hasCollectionStatusHistory
 http://rs.tdwg.org/ltc/terms/hasEvent,broadMatch,http://purl.org/dc/terms/relation,hasEvent,ltc:hasEvent
 http://rs.tdwg.org/ltc/terms/hasGeologicalContext,broadMatch,http://purl.org/dc/terms/relation,hasGeologicalContext,ltc:hasGeologicalContext
+http://rs.tdwg.org/ltc/terms/hasObjectClassification,broadMatch,http://purl.org/dc/terms/relation,hasObjectClassification,ltc:hasObjectClassification
 http://rs.tdwg.org/ltc/terms/hasOrganisationalUnit,broadMatch,http://purl.org/dc/terms/relation,hasOrganisationalUnit,ltc:hasOrganisationalUnit
 http://rs.tdwg.org/ltc/terms/hasResourceRelationship,broadMatch,http://purl.org/dc/terms/relation,hasResourceRelationship,ltc:hasResourceRelationship
 http://rs.tdwg.org/ltc/terms/hasStorageLocation,broadMatch,http://purl.org/dc/terms/relation,hasStorageLocation,ltc:hasStorageLocation
@@ -74,6 +75,7 @@ http://rs.tdwg.org/ltc/terms/referenceType,broadMatch,http://purl.org/dc/terms/t
 http://rs.tdwg.org/ltc/terms/resourceIRI,broadMatch,http://rs.tdwg.org/abcd/terms/resourceURI,resourceIRI,ltc:resourceIRI
 http://rs.tdwg.org/ltc/terms/ResourceRelationship,closeMatch,http://rs.tdwg.org/dwc/terms/ResourceRelationship,ResourceRelationship,ltc:ResourceRelationship
 http://rs.tdwg.org/ltc/terms/relatedResourceName,broadMatch,http://purl.org/dc/terms/title,relatedResourceName,ltc:relatedResourceName
+http://rs.tdwg.org/ltc/terms/relatedResourceType,broadMatch,http://purl.org/dc/terms/type,relatedResourceType,ltc:relatedResourceType
 http://rs.tdwg.org/ltc/terms/relationshipOfResource,closeMatch,http://rs.tdwg.org/dwc/terms/relationshipOfResource,relationshipOfResource,ltc:relationshipOfResource
 http://rs.tdwg.org/ltc/terms/Role,broadMatch,http://www.w3.org/ns/prov#Role,Role,ltc:Role
 http://rs.tdwg.org/ltc/terms/roleName,broadMatch,http://purl.org/dc/terms/title,roleName,ltc:roleName

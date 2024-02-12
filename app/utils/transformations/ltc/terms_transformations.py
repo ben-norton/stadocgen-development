@@ -13,7 +13,7 @@ term_src = str(path)+'/data/ltc/ltc-source/ltc_terms_source.csv'
 term_csv = str(path)+'/data/ltc/ltc-docs/ltc-termlist.csv'
 shutil.copy(term_src, term_csv)
 
-ns_src = str(path)+'/data/ltc/ltc-source/ltc-namespaces.csv'
+ns_src = str(path)+'/data/ltc/ltc-source/ltc_namespaces.csv'
 ns_csv = str(path)+'/data/ltc/ltc-docs/ltc-namespaces.csv'
 shutil.copy(ns_src, ns_csv)
 

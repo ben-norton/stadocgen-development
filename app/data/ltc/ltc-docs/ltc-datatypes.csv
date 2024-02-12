@@ -107,7 +107,7 @@ dwc:,MeasurementOrFact,measurementUnit,string,MeasurementOrFact.measurementUnit
 dwc:,MeasurementOrFact,measurementValue,number,MeasurementOrFact.measurementValue
 ltc:,ObjectClassification,hasIdentifier,array<ltc:Identifier>,ObjectClassification.hasIdentifier
 ltc:,ObjectClassification,hasMeasurementOrFact,array<ltc:MeasurementOrFact>,ObjectClassification.hasMeasurementOrFact
-ltc:,ObjectClassification,hasObjectClassification,array<ltc:ObjectClassification>,ObjectClassification.hasObjectClassification
+ltc:,ObjectClassification,hasParentObjectClassification,array<ltc:ObjectClassification>,ObjectClassification.hasParentObjectClassification
 ltc:,ObjectClassification,hasReference,array<ltc:Reference>,ObjectClassification.hasReference
 ltc:,ObjectClassification,isTopParent,boolean,ObjectClassification.isTopParent
 ltc:,ObjectClassification,objectClassificationLevel,string,ObjectClassification.objectClassificationLevel
@@ -185,9 +185,11 @@ ltc:,Reference,referenceName,string,Reference.referenceName
 ltc:,Reference,referenceType,string,Reference.referenceType
 abcd:,Reference,resourceURI,string,Reference.resourceURI
 ltc:,ResourceRelationship,hasIdentifier,array<ltc:Identifier>,ResourceRelationship.hasIdentifier
+ltc:,ResourceRelationship,hasMeasurementOrFact,array<ltc:MeasurementOrFact>,ResourceRelationship.hasMeasurementOrFact
 ltc:,ResourceRelationship,hasReference,array<ltc:Reference>,ResourceRelationship.hasReference
 dwc:,ResourceRelationship,relatedResourceID,string,ResourceRelationship.relatedResourceID
 ltc:,ResourceRelationship,relatedResourceName,string,ResourceRelationship.relatedResourceName
+ltc:,ResourceRelationship,relatedResourceType,string,ResourceRelationship.relatedResourceType
 dwc:,ResourceRelationship,relationshipAccordingTo,list,ResourceRelationship.relationshipAccordingTo
 dwc:,ResourceRelationship,relationshipEstablishedDate,string,ResourceRelationship.relationshipEstablishedDate
 dwc:,ResourceRelationship,relationshipOfResource,string,ResourceRelationship.relationshipOfResource
