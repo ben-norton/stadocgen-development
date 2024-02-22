@@ -34,7 +34,7 @@ freeze.py   Frozen flask script to generate build files
 ltc.yml     YAML configuration file for the Latimer Core Standard
 routes.py   Dynamic flask script
 ```
-
+ 
 ### Commands
 * To launch dev server, for testing run *flask run* from then project root directory then open a browser to localhost:5000
 * To build documentation webpages, change to app directory then run *python freeze.py build*

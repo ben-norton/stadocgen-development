@@ -128,14 +128,16 @@ def quickReference():
                    'is_required', 'rdf_type', 'compound_name']].sort_values(by=['class_name'])
     required_df = terms_df.loc[(terms_df['is_required'] == True) &
                                (terms_df['rdf_type'] == 'http://www.w3.org/1999/02/22-rdf-syntax-ns#Property')]
-
+    required_classes_df = terms_df.loc[(terms_df['is_required'] == True) &
+                               (terms_df['rdf_type'] == 'http://www.w3.org/2000/01/rdf-schema#Class')]
     return render_template('quick-reference.html',
                            headerMarkdown=Markup(marked_text),
                            grplists=grplists,
                            pageTitle='Latimer Core Quick Reference Guide',
                            title='Quick Reference',
                            slug='quick-reference',
-                           requiredTerms=required_df
+                           requiredTerms=required_df,
+                           requiredClasses=required_classes_df
                            )
 
 @app.route('/resources/')
