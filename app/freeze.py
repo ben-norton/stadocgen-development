@@ -143,11 +143,11 @@ def quickReference():
 @app.route('/resources/')
 def docResources():
     header_mdfile = 'md/ltc/resources-header.md'
-    with open(header_mdfile) as f:
+    with open(header_mdfile, encoding="utf8") as f:
         marked_text = markdown2.markdown(f.read(), extras=["tables", "fenced-code-blocks"])
 
     sssom_mdfile = 'md/ltc/sssom-reference.md'
-    with open(sssom_mdfile) as f:
+    with open(sssom_mdfile, encoding="utf8") as f:
         marked_sssom = markdown2.markdown(f.read(), extras=["tables", "fenced-code-blocks"])
 
     return render_template('resources.html',
