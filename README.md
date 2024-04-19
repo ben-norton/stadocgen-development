@@ -15,31 +15,40 @@ Built using Python Flask, the application transforms a set of CSV files into dat
 
 ```
 ├───app
-|   ├───archive     | Timestamped copies of csv and markdown files 
 │   ├───build       | Static html files generated using Frozen Flask (https://pythonhosted.org/Frozen-Flask/)
+│   ├───config      | Working standard-specific configuration files to populate standards level metadata (currently in development)
 │   ├───data        | Source data files in csv format
 │   │   ├───global
 │   │   ├───ltc
 │   │   │   ├───ltc-docs    | Source data post-transformation scripts
 │   │   │   └───ltc-source  | Original source data files
+│   │   │   └───ltc-source  | Tabular data schemas generated from the source CSV files (not part of the core stadocgen app)
 │   ├───md          | Specific content blocks in markdown format 
 │   │   └───ltc     | Markdown associated with Latimer Core Documentation
+│   │   └───tdwg    | Latest versions of official TDWG documentation markdown content, these files are then customized for each standard
 │   ├───static      | Static assets (css, js, icons)
+│   │   └───assets  | Standard static assets (do not change)
+│   │   └───images  | Stanard-specific custom imagery 
+│   │   └───custom  | Customized CSS overrides and javascript files that extend and alter the standardized template files under assets.
 │   ├───templates   | Jinja templates
-│   ├───tests       | Assorted testing scripts used to develop the application (not unit tests)
 │   ├───utils       | Data transformation utilities 
 _init__.py
-config.py   Standard python configuration file (not currently in use)
 freeze.py   Frozen flask script to generate build files
-ltc.yml     YAML configuration file for the Latimer Core Standard
 routes.py   Dynamic flask script
 ```
  
 ### Commands
-* To launch dev server, for testing run *flask run* from then project root directory then open a browser to localhost:5000
-* To build documentation webpages, change to app directory then run *python freeze.py build*
-Documentation built using StaDocGen must be pushed to the docs folder in a target repository. For LtC, 
-* the entire contents of the build folder must replace the existing content in the docs folder 
+Testing
+* Open a command prompt in the project root directory
+* Enter *flask run*
+* Open a browser to localhost:5000
+
+Build Docs
+* Open a command prompt in the app subdirectory (/app) 
+* Enter *python freeze.py build*
+* Copy the entire contents of the build directory (/app/build) to the docs folder in the target repository
+* Publish changes using the appropriate GitHub workflow
+
 In Windows, robocopy can be used to replace files in a target directory with a source. The following command will accomplish this task (before using, make sure to update the paths)  
 robocopy C:\repos\stadocgen\app\build G:\repos\ltc\docs /mir
 Once the new build is pushed to the target repo, continue the standard protocol for updating a repository (create new branch with updated docs > pull request > approve > merge).  
