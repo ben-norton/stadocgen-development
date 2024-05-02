@@ -38,12 +38,32 @@ routes.py   Dynamic flask script
 ```
  
 ### Commands
-Testing
+Creating Environment
+* Stadocgen was created using Windows 11, PyCharm Professional, and the package manager, Anaconda, in a conda virtual environment
+* To download Anaconda, go to https://www.anaconda.com/download/success
+* Install Anaconda then add the following to the Path environment variable
+  * Path to Anaconda (on my system, this is G:\python\anaconda3)
+  * Two subdirectories in the Anaconda installation directory
+    * [path to anaconda3]\Scripts
+    * [path to anaconda3]\Library\bin
+* Restart your computer
+* Open a command line window and type conda info
+  * You should see a summary of your conda installation 
+* Add the conda-forge package repo by running $conda config --add channels conda-forge
+
+### Install Packages 
+* Open command line window (recommend using ConEmu https://conemu.github.io/)
+* Navigate to the root directory of this repository
+* Enter $conda create --name <env> --file requirements.txt
+    * Replace <env> with the virtual environment name of your choosing
+* You should see a long-running dialog of package installations
+
+### Testing
 * Open a command prompt in the project root directory
 * Enter *flask run*
 * Open a browser to localhost:5000
 
-Build Docs
+### Build Documentation Pages
 * Open a command prompt in the app subdirectory (/app) 
 * Enter *python freeze.py build*
 * Copy the entire contents of the build directory (/app/build) to the docs folder in the target repository

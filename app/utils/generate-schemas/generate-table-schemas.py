@@ -1,9 +1,6 @@
 from tableschema import Table, infer, Schema
-import json_extract
-import pandas as pd
 import json
 import os
-import argparse
 from pathlib import Path
 
 namespace = 'ltc'

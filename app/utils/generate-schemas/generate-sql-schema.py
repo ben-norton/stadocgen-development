@@ -1,7 +1,6 @@
 import pandas as pd
 import os
 from pathlib import Path
-import numpy as np
 
 # Create Database Schema from CSV Files that contain database schema information (table name, column name, etc.)
 current_dir = Path().absolute()

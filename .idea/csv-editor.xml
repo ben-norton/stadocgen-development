@@ -45,6 +45,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\app\data\ltc\ltc-schemas\sql-schemas\ltc-terms-sql.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\app\data\ltc\ltc-source\abcd.csv">
           <value>
             <Attribute>
@@ -70,13 +77,6 @@
           <value>
             <Attribute>
               <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\app\data\ltc\ltc-source\ltc-namespaces.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=":" />
             </Attribute>
           </value>
         </entry>
@@ -129,105 +129,14 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="\app\data\ltc\schemas\csvstats\2023-12-29\abcd-stats.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=":" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\app\data\ltc\schemas\csvstats\2023-12-29\chrono-stats.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="&#9;" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\app\data\ltc\schemas\csvstats\2023-12-29\dcterms-stats.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="&#9;" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\app\data\ltc\schemas\csvstats\2023-12-29\dwc-stats.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="&#9;" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\app\data\ltc\schemas\csvstats\2023-12-29\ltc-stats.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="&#9;" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\app\data\ltc\schemas\csvstats\2023-12-29\ltc_categories-stats.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="&#9;" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\app\data\ltc\schemas\csvstats\2023-12-29\ltc_datatypes-stats.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="&#9;" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\app\data\ltc\schemas\csvstats\2023-12-29\ltc_terms_source-stats.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="&#9;" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\app\data\ltc\schemas\csvstats\2023-12-29\schema-stats.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="&#9;" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\app\data\ltc\schemas\sql-schemas\ltc-terms-sql.csv">
+        <entry key="\app\utils\tests\ltcdf.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\app\data\rs.tdwg.org\acvariant\namespace.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\app\data\rs.tdwg.org\chronoiri\chronoiri.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\app\data\rs.tdwg.org\chronoiri\namespace.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\app\data\rs.tdwg.org\chronometricage\chronometricage.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\app\data\rs.tdwg.org\chronometricage\namespace.csv">
+        <entry key="\app\utils\tests\ltcdf3.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
