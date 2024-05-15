@@ -1,6 +1,7 @@
 ## Configuration Files README
-This directory contains configuration files that contain parameters specific to a given project. The parameters govern
-the input and output of stadocgen and allow generalized usage without the need to customize stadocgen for each standard.
+### UNDER DEVELOPMENT ###
+The contents of this directory are works in progress and not currently utilized by the application. Work to standardize the format and content of each file is ongoing.
+Once complete, the intent is for the parameters to govern the input and output of stadocgen and allow generalized usage without the need to customize stadocgen for each standard.
 
 ### Contents
 Configurations for each data standard are stored in a pair of files that are defined as follows:
