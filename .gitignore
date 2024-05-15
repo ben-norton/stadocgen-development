@@ -238,4 +238,15 @@ fabric.properties
 
 # Custom
 Desktop.ini
-
+.idea
+.idea/*
+/.idea/*
+/.stadocgen-py-venv/
+app/build/*
+deprecated
+/.idea
+.idea/stadocgen.iml
+.idea/misc.xml
+.idea/csv-editor.xml
+app/test.py
+docs/build

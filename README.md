@@ -38,30 +38,32 @@ routes.py   Dynamic flask script
 ```
  
 ### Commands
-Creating Environment
-* Stadocgen was created using Windows 11, PyCharm Professional, and the package manager, Anaconda, in a conda virtual environment
-* To download Anaconda, go to https://www.anaconda.com/download/success
-* Install Anaconda then add the following to the Path environment variable
-  * Path to Anaconda (on my system, this is G:\python\anaconda3)
-  * Two subdirectories in the Anaconda installation directory
-    * [path to anaconda3]\Scripts
-    * [path to anaconda3]\Library\bin
-* Restart your computer
-* Open a command line window and type conda info
-  * You should see a summary of your conda installation 
-* Add the conda-forge package repo by running $conda config --add channels conda-forge
+Creating the Environment
+* Stadocgen was created using Windows 11, PyCharm Professional, Python 3.11 and the Package Manager PIP
+* For information on how to install Python 3.11 and the package manager, PIP, please refer to the respective documentation pages
+
+The $ signifies the start of a new command in the command line window (also colled the console). For Windows users, 
+I highly recommend using ConEmu https://conemu.github.io/ or Git Bash. You can also use the default console window by:
+1. Press the Windows Key
+2. Type cmd
+3. Press enter
 
 ### Install Packages 
-* Open command line window (recommend using ConEmu https://conemu.github.io/)
+* Open command line window
 * Navigate to the root directory of this repository
-* Enter $conda create --name <env> --file requirements.txt
-    * Replace <env> with the virtual environment name of your choosing
-* You should see a long-running dialog of package installations
+* Run the following commands
+  * $python -m venv .stadocgen-venv 
+  * $/.stadocgen-venv/Scripts/activate 
+  * $pip install -r requirements.txt
+* To test pages, go to **Testing**
+* To build webpages for publication, go to **Build Documentation Pages**
 
 ### Testing
-* Open a command prompt in the project root directory
-* Enter *flask run*
+* Open the command line window and navigate to the project root directory
+* Make sure the virtual environment is activated (conda activate stadcogen-venv)
+* At the commend line, enter $flask run
 * Open a browser to localhost:5000
+* To end testing and stop the development server, press CTRL+C in the command line window
 
 ### Build Documentation Pages
 * Open a command prompt in the app subdirectory (/app) 
@@ -76,6 +78,12 @@ Once the new build is pushed to the target repo, continue the standard protocol 
 ### Important Changes between routes.py and freeze.py
 1. In freeze.py, all route names must be bound with both leading and trailing forward slashes.
 2. When refreshing freeze.py with changes to routes.py, the leading 'app/' must be removed from every reference to an external files (e.g., markdown content files) 
+
+### Notes
+1. If you primarily use conda for virtual environments and package management, you may encounter issue with frozen flask. The only solution at the moment requires editing the package source
+files, which is ill-advised. Fortunately, the same problems have not been encountered when using the package manager, PIP, and a native python virtual environment. 
+
+
 
 LtC Pipeline
 Source: https://github.com/ben-norton/stadocgen/tree/main/app/build

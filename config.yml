@@ -10,3 +10,11 @@ configuration:
     - python
     - flask
     - mermaid.js
+  packages:
+    - pandas
+    - Flask
+    - Flask Frozen
+    - pathlib
+    - shutil
+commands:
+  - conda install flask pandas pathlib frozen-flask
