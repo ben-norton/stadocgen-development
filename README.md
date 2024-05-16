@@ -75,15 +75,19 @@ In Windows, robocopy can be used to replace files in a target directory with a s
 robocopy C:\repos\stadocgen\app\build G:\repos\ltc\docs /mir
 Once the new build is pushed to the target repo, continue the standard protocol for updating a repository (create new branch with updated docs > pull request > approve > merge).  
 
+## Notes
+
 ### Important Changes between routes.py and freeze.py
 1. In freeze.py, all route names must be bound with both leading and trailing forward slashes.
 2. When refreshing freeze.py with changes to routes.py, the leading 'app/' must be removed from every reference to an external files (e.g., markdown content files) 
 
-### Notes
+### Conda and PIP
 1. If you primarily use conda for virtual environments and package management, you may encounter issue with frozen flask. The only solution at the moment requires editing the package source
 files, which is ill-advised. Fortunately, the same problems have not been encountered when using the package manager, PIP, and a native python virtual environment. 
 
-
+## App Documentation
+StaDocGen documentation is written and built with Writerside (https://www.jetbrains.com/writerside/). The documentation remains a work in progress. When ready, it will be published to the 
+docs build directory for presentation/publication.
 
 LtC Pipeline
 Source: https://github.com/ben-norton/stadocgen/tree/main/app/build
