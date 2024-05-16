@@ -53,7 +53,10 @@ I highly recommend using ConEmu https://conemu.github.io/ or Git Bash. You can a
 * Navigate to the root directory of this repository
 * Run the following commands
   * $python -m venv .stadocgen-venv
-  * $.\.stadocgen-venv\Scripts\activate (Using Windows, If you are running a Mac or Linux, see python docs for activating virtual environments)
+  * **Windows**:
+       * $.\.stadocgen-venv\Scripts\activate
+  * **Mac/Linux**:
+       * $source .stadocgen-venv/bin/activate
   * $pip install -r requirements.txt
 * To test pages, go to **Testing**
 * To build webpages for publication, go to **Build Documentation Pages**
