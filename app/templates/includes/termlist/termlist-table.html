@@ -7,14 +7,10 @@
                 <thead>
                     <tr>
                         <th colspan="2">Term Name
-                        <span class="title">{{ v['term_local_name'] }}</span></th>
+                        <span class="title">{{ v['term_ns_name'] }}</span></th>
                     </tr>
                 </thead>
                 <tbody>
-                        <tr>
-							<th scope="row">Qualified Term</th>
-							<td>{{ v['term_ns_name'] }}</td>
-						</tr>
                         <tr>
 							<th scope="row">Term IRI</th>
 							<td>{{ v['term_iri']|urlize }}</td>
