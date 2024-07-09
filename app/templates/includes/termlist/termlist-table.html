@@ -1,13 +1,13 @@
 <h2 id="5-vocabulary">5 Vocabulary</h2>
   {% for idx, v in terms.iterrows() %}
-	<span id="{{ v['compound_name']|replace('.','_') }}"></span>
+	<span id="{{ v['compound_name']|replace('.','_') }}">Term Name: {{ v['term_ns_name'] }}</span>
     <div class="term-table-wrapper">
         <div class="table-responsive print-avoid">
             <table class="table table-compact table-terms">
                 <thead>
                     <tr>
                         <th colspan="2">Term Name
-                        <span class="title">{{ v['term_ns_name'] }}</span></th>
+                        <span class="title"></span></th>
                     </tr>
                 </thead>
                 <tbody>
