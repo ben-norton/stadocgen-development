@@ -253,3 +253,4 @@ docs/build
 .idea/stadocgen.iml
 /.idea
 /.stadocgen-ltc-venv
+/.idea
