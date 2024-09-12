@@ -250,3 +250,6 @@ deprecated
 .idea/csv-editor.xml
 app/test.py
 docs/build
+.idea/stadocgen.iml
+/.idea
+/.stadocgen-ltc-venv

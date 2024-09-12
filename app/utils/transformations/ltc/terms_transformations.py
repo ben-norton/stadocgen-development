@@ -64,7 +64,7 @@ ltc_df = pd.merge(ltc_df, ns_df[['namespace', 'namespace_iri']], on='namespace',
 ltc_df['term_iri'] = ltc_df['namespace_iri'].astype(str) + ltc_df['term_local_name']
 ltc_df['term_ns_name'] = ltc_df['namespace'].astype(str) + ltc_df['term_local_name']
 
-
+ltc_df['term_version_iri'] = 'http://rs.tdwg.org/ltc/terms/' + ltc_df["term_local_name"] + '-' + ltc_df["term_modified"]
 # Resave terms file
 ltc_df.to_csv(term_csv, index=False, encoding='utf8')
 

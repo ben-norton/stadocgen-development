@@ -67,7 +67,7 @@ def terms():
     ltcCls = terms_df["class_name"].dropna().unique()
 
     # Terms by Class
-    grpdict2 = terms_df.groupby('class_name')[['term_ns_name', 'term_local_name', 'namespace', 'compound_name']].apply(
+    grpdict2 = terms_df.groupby('class_name')[['term_ns_name', 'term_local_name', 'namespace', 'compound_name','term_version_iri','term_modified']].apply(
         lambda g: list(map(tuple, g.values.tolist()))).to_dict()
     termsByClass = []
 
@@ -106,7 +106,7 @@ def quickReference():
     grpdict = df.fillna(-1).groupby('class_name')[['namespace', 'term_local_name', 'label', 'definition',
                                                    'usage', 'notes', 'examples', 'rdf_type', 'class_name',
                                                    'is_required', 'is_repeatable', 'compound_name',
-                                                   'datatype', 'term_ns_name', 'term_iri']].apply(
+                                                   'datatype', 'term_ns_name', 'term_iri', 'term_version_iri','term_modified']].apply(
         lambda g: list(map(tuple, g.values.tolist()))).to_dict()
     grplists = []
     for i in grpdict:

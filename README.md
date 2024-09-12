@@ -60,7 +60,7 @@ I highly recommend using ConEmu https://conemu.github.io/ or Git Bash. You can a
 
 ### Testing
 * Open the command line window and navigate to the project root directory
-* Make sure the virtual environment is activated (conda activate stadcogen-venv)
+* Make sure the virtual environment is activated (conda activate stadcogen-venv or .\.stadocgen-venv\Scripts\activate)
 * At the commend line, enter $flask run
 * Open a browser to localhost:5000
 * To end testing and stop the development server, press CTRL+C in the command line window
