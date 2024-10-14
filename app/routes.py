@@ -63,8 +63,16 @@ def terms():
     terms['usage'] = terms['usage'].str.replace(r'"', '')
     terms['notes'] = terms['notes'].str.replace(r'"', '')
 
+
     # Unique Class Names
-    ltcCls = terms_df["class_name"].dropna().unique()
+    ltcCls = terms_df['class_name'].dropna().unique()
+
+    # Generate Unique Terms List
+    uniqueTerms = terms_df.drop_duplicates('term_local_name').sort_values('term_local_name')
+    # selectCols = ['class_name','term_ns_name','term_local_name','term_iri','term_modified','term_version_iri','label','definition','usage','notes','examples','datatype','is_required','is_repeatable','rdf_type']
+    # groupCols = ['term_ns_name','term_local_name','term_iri','term_modified','term_version_iri','label','definition','usage','notes','examples','datatype','is_required','is_repeatable','rdf_type']
+    # unique_terms_df = terms_df[selectCols].groupby(groupCols)['class_name'].agg([('class_name', ', '.join)]).reset_index()
+    # uniqueTerms = unique_terms_df.drop_duplicates('term_local_name').sort_values('term_local_name')
 
     # Terms by Class
     grpdict2 = terms_df.groupby('class_name')[['term_ns_name', 'term_local_name', 'namespace', 'compound_name','term_version_iri','term_modified']].apply(
@@ -83,10 +91,12 @@ def terms():
                            terms=terms,
                            sssom=sssom_df,
                            termsByClass=termsByClass,
+                           uniqueTerms=uniqueTerms,
                            pageTitle='Latimer Core Terms',
                            title='Term List',
                            slug='termlist'
     )
+
 
 @app.route('/quick-reference')
 def quickReference():

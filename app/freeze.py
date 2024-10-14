@@ -74,6 +74,9 @@ def terms():
     # Unique Class Names
     ltcCls = terms_df["class_name"].dropna().unique()
 
+    # Generate Unique Terms List
+    uniqueTerms = terms_df.drop_duplicates('term_local_name').sort_values('term_local_name')
+
     # Terms by Class
     grpdict2 = terms_df.groupby('class_name')[['term_ns_name', 'term_local_name', 'namespace', 'compound_name']].apply(
         lambda g: list(map(tuple, g.values.tolist()))).to_dict()
@@ -91,6 +94,7 @@ def terms():
                            terms=terms,
                            sssom=sssom_df,
                            termsByClass=termsByClass,
+                           uniqueTerms=uniqueTerms,
                            pageTitle='Latimer Core Terms',
                            title='Term List',
                            slug='termlist'

@@ -81,3 +81,5 @@ dt_df.to_csv(dt_csv, index=False, encoding='utf8')
 ltc_df = pd.merge(ltc_df, dt_df[['compound_name', 'datatype']], on='compound_name', how='left')
 # Resave
 ltc_df.to_csv(term_csv, index=False, encoding='utf8')
+
+

@@ -1,6 +1,5 @@
 <h2 id="5-vocabulary">5 Vocabulary</h2>
-  {% for idx, v in terms.iterrows() %}
-
+  {% for k,v in uniqueTerms.iterrows() %}
     <div class="term-table-wrapper">
         <div class="table-responsive print-avoid">
             <table class="table table-compact table-terms">
@@ -8,7 +7,7 @@
                     <tr>
                         <th colspan="2">Term Name
                             <span class="title">
-                                <span id="{{ v['compound_name']|replace('.','_') }}">{{ v['term_ns_name'] }}</span>
+                                <span id="{{ v['term_ns_name'] }}">{{ v['term_ns_name'] }}</span>
                             </span>
                         </th>
                     </tr>
@@ -53,6 +52,7 @@
 						{% endif %}
 
 
+
 						{% if v['examples'] is number %}
 						{% else %}
 						{% set list1 = v['examples'].split('`, `') %}
@@ -75,12 +75,13 @@
 						<tr>
 							<th scope="row">Datatype</th>
                             {% if v['datatype'] %}
-							<td>{{ v['datatype'] }}</td>
+								<td>{{ v['datatype'] }}</td>
                             {% else %}
-                            <td>array< self ></td>
+                            	<td>array< self ></td>
                             {%  endif %}
 						</tr>
 						{% endif %}
+
 
 						{%  if(v['rdf_type'] == 'http://www.w3.org/1999/02/22-rdf-syntax-ns#Property') %}
                         <tr>
@@ -89,15 +90,19 @@
                         </tr>
                         {%  endif %}
 
-                        <tr>
-							<th scope="row">Required</th>
-							<td>{{ v['is_required'] }}</td>
-						</tr>
+						{%  if(v['term_local_name'] != 'hasIdentifier') %}
+	                        <tr>
+								<th scope="row">Required</th>
+								<td>{{ v['is_required'] }}</td>
+							</tr>
+                        {%  endif %}
 
+						{%  if(v['term_local_name'] != 'hasIdentifier') %}
                         <tr>
 							<th scope="row">Repeatable</th>
 							<td>{{ v['is_repeatable'] }}</td>
 						</tr>
+						{%  endif %}
 
                         <tr>
 							<th scope="row">RDF Type</th>

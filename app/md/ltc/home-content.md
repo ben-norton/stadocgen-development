@@ -8,8 +8,3 @@ Getting started[](#getting-started)
 *   See how classes fit together in the [Standard Browser](https://rebrand.ly/tdwg-cd-standard-browser).
 *   Add or join a [Discussion](https://github.com/tdwg/ltc/discussions)
 
--------------
-## Public Review 
-Public Review has concluded! Thank you to all that participated. 
-W
-*Last Updated: February. 22, 2024*
