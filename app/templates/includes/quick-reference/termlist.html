@@ -2,7 +2,7 @@
 <a id="latimerCore"></a>
 
 {% for v in grplists %}
-    <h2 id="{{ v }}">{{  v.class }}</h2>
+    <h2 id="{{ v.class }}">{{  v.class }}</h2>
     <div class="my-4">
          {% for k in v.termlist %}
             <a class="btn btn-sm btn-outline-primary m-1" href="#{{ k[11] }}">{{  k[0] }}{{ k[1] }}</a>

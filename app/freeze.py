@@ -54,6 +54,11 @@ def terms():
     sssomcsv = 'data/ltc/ltc-docs/ltc-sssom.csv'
     sssom_df = pd.read_csv(sssomcsv)
 
+    terms_df['examples'] = terms_df['examples'].str.replace('"', '')
+    terms_df['definition'] = terms_df['definition'].str.replace('"', '')
+    terms_df['usage'] = terms_df['usage'].str.replace('"', '')
+    terms_df['notes'] = terms_df['notes'].str.replace('"', '')
+
     terms_skos_df1 = pd.merge(
         terms_df, skos_df[['term_iri', 'skos_mappingRelation', 'related_termName']],
         on=['term_iri'], how='left'
@@ -66,10 +71,8 @@ def terms():
     )
 
     terms = terms_skos_df.sort_values(by=['class_name'])
-    terms['examples'] = terms['examples'].str.replace(r'"', '')
-    terms['definition'] = terms['definition'].str.replace(r'"', '')
-    terms['usage'] = terms['usage'].str.replace(r'"', '')
-    terms['notes'] = terms['notes'].str.replace(r'"', '')
+
+
 
     # Unique Class Names
     ltcCls = terms_df["class_name"].dropna().unique()
