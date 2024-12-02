@@ -4,7 +4,7 @@ import shutil
 
 namespace = 'ltc'
 current_dir = Path().absolute()
-path = current_dir.parent.parent.parent
+path = current_dir.parent.parent
 
 # 1.  Create copy of source csv
 sssom_src = str(path)+'/data/ltc/ltc-source/mapping/ltc_sssom_mapping.csv'

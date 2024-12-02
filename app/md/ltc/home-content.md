@@ -7,4 +7,3 @@ Getting started[](#getting-started)
 *   The [LtC Wiki](https://github.com/tdwg/ltc/wiki/1.-Overview-of-Latimer-Core) provides an overview of Latimer Core's structure and purpose
 *   See how classes fit together in the [Standard Browser](https://rebrand.ly/tdwg-cd-standard-browser).
 *   Add or join a [Discussion](https://github.com/tdwg/ltc/discussions)
-

@@ -1,0 +1,14 @@
+title: Latimer Core
+acronym: LtC
+tdwg-landing-page: https://ltc.tdwg.org
+github-repo: https://github.com/tdwg/ltc
+documentation-landing-page: https://ltc.tdwg.org/index.html
+source-data-files:
+  https://github.com/tdwg/ltc/blob/aee1adab55622363cc663fae7ed9e9c54e342f31/source/terms/ltc_terms_source.csv
+  https://github.com/tdwg/ltc/blob/aee1adab55622363cc663fae7ed9e9c54e342f31/source/terms/ltc_namespaces.csv
+  https://github.com/tdwg/ltc/blob/aee1adab55622363cc663fae7ed9e9c54e342f31/source/terms/ltc_datatypes.csv
+  https://github.com/tdwg/ltc/blob/aee1adab55622363cc663fae7ed9e9c54e342f31/source/terms/ltc.csv
+source-md-files:
+  https://github.com/tdwg/ltc/tree/main/source/md/*
+last-modified: 20241129
+comments:

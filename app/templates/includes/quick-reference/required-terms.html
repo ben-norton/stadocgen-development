@@ -25,29 +25,28 @@
             </table>
         </div>
 
-
-
-    <h5 class="table-header">Required Terms</h5>
-    <div class="table-responsive print-avoid">
-        <table class="table table-compact table-terms">
-            <thead>
-                <tr>
-                    <th>Term</th>
-                    <th>Label</th>
-                    <th>Class</th>
-                    <th>Required</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for idx, v in requiredTerms.iterrows() %}
+        <h5 class="table-header">Required Terms</h5>
+        <div class="table-responsive print-avoid">
+            <table class="table table-compact table-terms">
+                <thead>
                     <tr>
-                        <td><a href="#{{ v['compound_name'] }}">{{ v['namespace'] }}{{ v['term_local_name'] }}</a></td>
-                        <td>{{ v['label'] }}</td>
-                        <td>{{ v['class_name'] }}</td>
-                        <td>{{ v['is_required'] }}</td>
+                        <th>Term</th>
+                        <th>Label</th>
+                        <th>Class</th>
+                        <th>Required</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for idx, v in requiredTerms.iterrows() %}
+                        <tr>
+                            <td><a href="#{{ v['compound_name'] }}">{{ v['namespace'] }}{{ v['term_local_name'] }}</a></td>
+                            <td>{{ v['label'] }}</td>
+                            <td>{{ v['class_name'] }}</td>
+                            <td>{{ v['is_required'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

@@ -7,7 +7,11 @@
                     <tr>
                         <th colspan="2">Term Name
                             <span class="title">
-                                <span id="{{ v['term_ns_name'] }}">{{ v['term_ns_name'] }}</span>
+                                {% if v['class_name'] == v['term_local_name'] %}
+                                    <span id="{{ v['class_name'] }}">{{ v['term_ns_name'] }}</span>
+                                {% else %}
+                                    <span id="{{ v['class_name'] }}_{{ v['term_local_name'] }}">{{ v['term_ns_name'] }}</span>
+                                {% endif %}
                             </span>
                         </th>
                     </tr>
@@ -114,7 +118,7 @@
 						</tr>
 				</tbody>
 			</table>
-            {% include 'includes/termlist/sssom-table.html' %}
+            {% include 'includes/term-list/sssom-table.html' %}
         </div>
     </div>
 {% endfor %}

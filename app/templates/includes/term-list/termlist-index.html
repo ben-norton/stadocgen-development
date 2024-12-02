@@ -18,7 +18,7 @@
             <h5>{{ v.class }}</h5>
             <ul class="term-list list-3-col">
                 {% for k in v.termlist %}
-                    <li><a href="#{{ k[0] }}">{{ k[0] }}</a></li>
+                    <li><a href="#{{ v.class }}_{{ k[1] }}">{{ k[0] }}</a></li>
                 {%  endfor %}
             </ul>
          </div>
@@ -28,7 +28,7 @@
             <h5>{{ v.class }}</h5>
             <ul class="term-list list-3-col">
                 {% for k in v.termlist %}
-                    <li><a href="#{{ k[0] }}">{{ k[0] }}</a></li>
+                    <li><a href="#{{ v.class }}_{{ k[1] }}">{{ k[0] }}</a></li>
                 {%  endfor %}
             </ul>
          </div>

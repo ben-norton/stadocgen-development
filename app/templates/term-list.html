@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 {% block main %}
 <main>
-	{% include 'includes/page-header.html' %}
+	{% include 'includes/global/page-header.html' %}
 	<a id="top"></a>
 	<div class="container content">
 		<div class="row">
 			<div class="col-lg-3 mx-auto">	
-				{% include 'includes/termlist/sidebar.html' %}
+				{% include 'includes/term-list/sidebar.html' %}
 			</div>
 			<div class="col-lg-9 order-lg-first mx-auto">
-			    <h1 id="ltc-list-of-terms">Latimer Core List of Terms</h1>
+			    <h1 id="ltc-list-of-terms">{{ title }} {{ pageTitle }}</h1>
 				<div class="content-header-wrapper">
 	                {{ headerMarkdown }}
 				</div>
-				{% include 'includes/termlist/termlist-index.html' %}
-				{% include 'includes/termlist/termlist-table.html' %}
+				{% include 'includes/term-list/termlist-index.html' %}
+				{% include 'includes/term-list/termlist-table.html' %}
             </div>
         </div>
  	</div>

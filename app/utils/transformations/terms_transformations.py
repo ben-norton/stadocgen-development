@@ -4,7 +4,7 @@ import shutil
 
 namespace = 'ltc'
 current_dir = Path().absolute()
-path = current_dir.parent.parent.parent
+path = current_dir.parent.parent
 
 # -------------------------------------------------------
 # Create copies
@@ -65,6 +65,8 @@ ltc_df['term_iri'] = ltc_df['namespace_iri'].astype(str) + ltc_df['term_local_na
 ltc_df['term_ns_name'] = ltc_df['namespace'].astype(str) + ltc_df['term_local_name']
 
 ltc_df['term_version_iri'] = 'http://rs.tdwg.org/ltc/terms/' + ltc_df["term_local_name"] + '-' + ltc_df["term_modified"]
+
+ltc_df.sort_values(by='term_local_name', axis='index', inplace=True, na_position='last')
 # Resave terms file
 ltc_df.to_csv(term_csv, index=False, encoding='utf8')
 

@@ -5,5 +5,5 @@ This folder contains a collection of useful transformation and analysis python s
 [stadocgen/utils/transformations]  
 Scripts that transform csv files 
 
-[stadocgen/utils/samples]  
-The samples folder contains a set of example scripts and snippets for reference
+[stadocgen/utils/analysis]  
+Scripts to analyze the transformation results

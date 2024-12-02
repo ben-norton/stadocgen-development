@@ -254,3 +254,4 @@ docs/build
 /.idea
 /.stadocgen-ltc-venv
 /.idea
+/app/utils/analysis/output

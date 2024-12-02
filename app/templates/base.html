@@ -3,7 +3,7 @@
   <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>{{ title }} - Latimer Core</title>
+	<title>{{ title }} {{ pageTitle }}</title>
 	<meta property="og:url" content="https://tdwg.github.io/ltc/list/">
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="Latimer Core List of Terms">
@@ -22,12 +22,12 @@
 
 </head>
 <body id="page-top">
-{% include 'includes/navbar.html' %}
+{% include 'includes/global/navbar.html' %}
 
 {% block main %}
 {% endblock %}
 
-{% include 'includes/page-footer.html' %}
+{% include 'includes/global/page-footer.html' %}
 
 	<script src="{{ url_for('static',filename='assets/theme/js/jquery.min.js') }}"></script>
 	<script src="{{ url_for('static',filename='assets/theme/js/popper.min.js') }}"></script>
@@ -38,6 +38,7 @@
 
 	<script>
         $(document).ready(function () {
+			// Help popovers for SKOS terms
              $('[data-bs-toggle="popover"]').popover({
                 trigger: 'click',
                 container: '.popover-container',
@@ -56,6 +57,7 @@
                    $('[data-bs-toggle="popover"]').popover('hide');
                 }
             });
+			// Mermaid E-R Diagrams
 			mermaid.initialize({
                 theme: 'forest',
                 securityLevel: 'loose',

@@ -1,8 +1,12 @@
 from app import app
-from flask import render_template, request, jsonify
+from flask import render_template
 from markupsafe import Markup
 import markdown2
 import pandas as pd
+import yaml
+
+with open('app/meta.yml') as metadata:
+    meta = yaml.safe_load(metadata)
 
 @app.errorhandler(404)
 def page_not_found(error):
@@ -25,12 +29,12 @@ def pygments_css():
 @app.route('/')
 def home():
     home_mdfile = 'app/md/ltc/home-content.md'
-    marked_text = ''
     with open(home_mdfile, encoding="utf8") as f:
         marked_text = markdown2.markdown(f.read())
     return render_template('home.html',
-                           homemd=Markup(marked_text),
-                           title='Home',
+                           home_markdown=Markup(marked_text),
+                           pageTitle='Home',
+                           title=meta['title'],
                            slug='home')
 @app.route('/terms')
 def terms():
@@ -43,34 +47,26 @@ def terms():
     terms_csv = 'app/data/ltc/ltc-docs/ltc-termlist.csv'
     terms_df = pd.read_csv(terms_csv, encoding='utf8')
 
-    skoscsv = 'app/data/ltc/ltc-docs/ltc-skos.csv'
-    skos_df = pd.read_csv(skoscsv, encoding='utf8')
-
-    sssomcsv = 'app/data/ltc/ltc-docs/ltc-sssom.csv'
-    sssom_df = pd.read_csv(sssomcsv, encoding='utf8')
+    sssom_csv = 'app/data/ltc/ltc-docs/ltc-sssom.csv'
+    sssom_df = pd.read_csv(sssom_csv, encoding='utf8')
 
     terms_df['examples'] = terms_df['examples'].str.replace('"', '')
     terms_df['definition'] = terms_df['definition'].str.replace('"', '')
     terms_df['usage'] = terms_df['usage'].str.replace('"', '')
     terms_df['notes'] = terms_df['notes'].str.replace('"', '')
 
-
-    terms_skos_df1 = pd.merge(
-        terms_df, skos_df[['term_iri', 'skos_mappingRelation', 'related_termName']], on=['term_iri'], how='left'
-    )
     terms_skos_df = pd.merge(
-        terms_skos_df1, sssom_df[['compound_name', 'predicate_label', 'object_id', 'object_category', 'object_label', 'mapping_justification' ]],
+        terms_df, sssom_df[['compound_name', 'predicate_label', 'object_id', 'object_category', 'object_label', 'mapping_justification' ]],
         on=['compound_name'], how='left'
     )
 
-    terms = terms_skos_df.sort_values(by=['class_name'])
-
+    terms = terms_skos_df.sort_values(by=['class_name','term_local_name'])
 
     # Unique Class Names
     ltcCls = terms_df['class_name'].dropna().unique()
 
     # Generate Unique Terms List
-    uniqueTerms = terms_df.drop_duplicates('term_local_name').sort_values('term_local_name')
+    # uniqueTerms = terms_df.drop_duplicates('term_local_name').sort_values('term_local_name')
     # selectCols = ['class_name','term_ns_name','term_local_name','term_iri','term_modified','term_version_iri','label','definition','usage','notes','examples','datatype','is_required','is_repeatable','rdf_type']
     # groupCols = ['term_ns_name','term_local_name','term_iri','term_modified','term_version_iri','label','definition','usage','notes','examples','datatype','is_required','is_repeatable','rdf_type']
     # unique_terms_df = terms_df[selectCols].groupby(groupCols)['class_name'].agg([('class_name', ', '.join)]).reset_index()
@@ -87,16 +83,16 @@ def terms():
             'termlist': grpdict2[i]
         })
 
-    return render_template('termlist.html',
+    return render_template('term-list.html',
                            headerMarkdown=Markup(marked_text),
                            ltcCls=ltcCls,
                            terms=terms,
                            sssom=sssom_df,
                            termsByClass=termsByClass,
-                           uniqueTerms=uniqueTerms,
-                           pageTitle='Latimer Core Terms',
-                           title='Term List',
-                           slug='termlist'
+                           uniqueTerms=terms,
+                           pageTitle='List of Terms',
+                           title=meta['title'],
+                           slug='term-list'
     )
 
 
@@ -141,8 +137,8 @@ def quickReference():
     return render_template('quick-reference.html',
                            headerMarkdown=Markup(marked_text),
                            grplists=grplists,
-                           pageTitle='Latimer Core Quick Reference Guide',
-                           title='Quick Reference',
+                           pageTitle='Quick Reference Guide',
+                           title=meta['title'],
                            slug='quick-reference',
                            requiredTerms=required_df,
                            requiredClasses=required_classes_df
@@ -163,7 +159,7 @@ def docResources():
     return render_template('resources.html',
                            headerMarkdown=Markup(marked_text),
                            sssomRefMarkdown=Markup(marked_sssom),
-                           pageTitle='Latimer Core Resources',
-                           title='Resources',
+                           pageTitle='Resources',
+                           title=meta['title'],
                            slug='resources'
     )

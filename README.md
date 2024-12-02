@@ -16,7 +16,6 @@ Built using Python Flask, the application transforms a set of CSV files into dat
 ```
 ├───app
 │   ├───build       | Static html files generated using Frozen Flask (https://pythonhosted.org/Frozen-Flask/)
-│   ├───config      | Working standard-specific configuration files to populate standards level metadata (currently in development)
 │   ├───data        | Source data files in csv format
 │   │   ├───global
 │   │   ├───ltc
@@ -61,6 +60,10 @@ I highly recommend using ConEmu https://conemu.github.io/ or Git Bash. You can a
 * To test pages, go to **Testing**
 * To build webpages for publication, go to **Build Documentation Pages**
 
+### Before Running
+* Make sure to copy the latest version of the page markdown files from the standard repository. In the case of Latimer Core, these files reside in the LtC Repo here: [https://github.com/tdwg/ltc/tree/main/source/md](https://github.com/tdwg/ltc/tree/main/source/md)
+* If you haven't already, open the meta.yml metadata file and enter the appropriate information for your standard.
+
 ### Testing
 * Open the command line window and navigate to the project root directory
 * Make sure the virtual environment is activated (conda activate stadcogen-venv or .\.stadocgen-venv\Scripts\activate)
@@ -77,8 +80,6 @@ I highly recommend using ConEmu https://conemu.github.io/ or Git Bash. You can a
 In Windows, robocopy can be used to replace files in a target directory with a source. The following command will accomplish this task (before using, make sure to update the paths)  
 robocopy C:\repos\stadocgen\app\build G:\repos\ltc\docs /mir
 Once the new build is pushed to the target repo, continue the standard protocol for updating a repository (create new branch with updated docs > pull request > approve > merge).  
-
-## Notes
 
 ### Important Changes between routes.py and freeze.py
 1. In freeze.py, all route names must be bound with both leading and trailing forward slashes.
