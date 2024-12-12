@@ -1,0 +1,93 @@
+<h2 id="5-vocabulary">5 Vocabulary</h2>
+{% for idx, v in terms.iterrows() %}
+    <span id="{{ v['informationElement_localName']|replace('.','_') }}"></span>
+    <div class="term-table-wrapper">
+        <div class="table-responsive print-avoid">
+            <table class="table table-compact table-terms">
+                <thead>
+                <tr>
+                    <th colspan="2">Element Name
+                        <span class="title">{{ v['informationElement_localName'] }}</span></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">Element URI</th>
+                    <td>{{ v['element_uri']|urlize }}</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Label</th>
+                    <td>{{ v['label'] }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Definition</th>
+                    <td>{{ v['definition'] }}</td>
+                </tr>
+
+                {% if v['purpose'] is number %}
+                {% else %}
+                    <tr>
+                        <th scope="row">Usage</th>
+                        <td>{{ v['purpose'] }}</td>
+                    </tr>
+                {% endif %}
+
+                {% if v['notes'] is number %}
+                {% else %}
+                    <tr>
+                        <th scope="row">Notes</th>
+                        <td>{{ v['notes'] }}</td>
+                    </tr>
+                {% endif %}
+
+                {% if v['recommendations'] is number %}
+                {% else %}
+                    <tr>
+                        <th scope="row">Recommendations</th>
+                        <td>{{ v['recommendations'] }}</td>
+                    </tr>
+                {% endif %}
+
+                {% if v['constraints'] is number %}
+                {% else %}
+                    <tr>
+                        <th scope="row">Constraints</th>
+                        <td>{{ v['constraints'] }}</td>
+                    </tr>
+                {% endif %}
+
+
+                {% if v['examples'] is number %}
+                {% else %}
+                    {% set list1 = v['examples'].split('`, `') %}
+                    <tr>
+                        <th scope="row">Examples</th>
+                        <td>
+                            <ul class="td-list">
+                                {% for item in list1 %}
+                                    <li><span>{{ item|replace("`","") }}</span></li>
+                                {% endfor %}
+                            </ul>
+
+                        </td>
+                    </tr>
+
+                {% endif %}
+
+                <tr>
+                    <th scope="row">Required</th>
+                    <td>{{ v['required'] }}</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Repeatable</th>
+                    <td>{{ v['repeatable'] }}</td>
+                </tr>
+
+                </tbody>
+            </table>
+            {% include 'includes/termlist/sssom-table.html' %}
+        </div>
+    </div>
+{% endfor %}

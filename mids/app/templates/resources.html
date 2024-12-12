@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block main %}
+<main>
+	{% include 'includes/page-header.html' %}
+	<div class="container content">
+		<div class="row">
+			<div class="col-lg-2 mx-auto">
+				{% include 'includes/resources/sidebar.html' %}
+			</div>
+			<div class="col-lg-10 order-lg-first mx-auto">
+				<div class="content-header-wrapper">
+					{{ headerMarkdown }}
+				</div>
+				<div class="ref-wrapper">
+					{{ sssomRefMarkdown }}
+				</div>
+
+				{%  include 'includes/resources/diagrams.html' %}
+	 		</div>
+	 	</div>
+ 	</div>
+</main>
+{%  endblock %}

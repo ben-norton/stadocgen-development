@@ -1,0 +1,65 @@
+<h1>MIDS</h1>
+<a id="mids"></a>
+
+{% for v in grplists %}
+    <h2 id="{{ v }}">{{ v.mids_category }}</h2>
+    <div class="my-4">
+        {% for k in v.element_list %}
+            <a class="btn btn-sm btn-outline-primary m-1" href="#{{ k[1] }}">{{ k[1] }}</a>
+        {% endfor %}
+    </div>
+    {% for k in v.element_list %}
+        <div class="table-responsive" id="{{ k[1] }}">
+            <table class="table table-compact">
+                <thead>
+                <tr>
+                    <th class="property" colspan="2">
+                        <span class="title">{{ k[1] }}</span>
+                        <span class="badge badge-property float-end">Information Element</span>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">Element URI</th>
+                    <td>{{ k[0]|urlize }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Label</th>
+                    <td>{{ k[2] }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Definition</th>
+                    <td>{{ k[3] }}</td>
+                </tr>
+                {% if k[4] and (k[4] != -1) %}
+                    <tr>
+                        <th scope="row">Notes</th>
+                        <td>
+                            {% if(k[4] != -1) %}
+                                {{ k[4] }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% else %}
+                {% endif %}
+
+                {% if k[6] and (k[6] != -1) %}
+                    {% set list1 = k[6].split('`, `') %}
+                    <tr>
+                        <th scope="row">Examples</th>
+                        <td>
+                            <ul class="td-list">
+                                {% for item in list1 %}
+                                    <li><span>{{ item|replace("`","") }}</span></li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                {% else %}
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+    {% endfor %}
+{% endfor %}

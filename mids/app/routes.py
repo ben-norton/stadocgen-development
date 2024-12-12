@@ -40,3 +40,17 @@ def home():
                            githubRepo=meta['github-repo'],
                            slug='home'
                            )
+@app.route('/mappings')
+def home():
+    home_mdfile = 'app/md/mappings-content.md'
+    with open(home_mdfile, encoding="utf8") as f:
+        marked_text = markdown2.markdown(f.read())
+    return render_template('home.html',
+                           home_markdown=Markup(marked_text),
+                           pageTitle='Home',
+                           title=meta['title'],
+                           acronym=meta['acronym'],
+                           landingPage=meta['documentation-landing-page'],
+                           githubRepo=meta['github-repo'],
+                           slug='home'
+                           )

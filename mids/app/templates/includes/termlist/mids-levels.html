@@ -1,0 +1,27 @@
+<h2 id="mids-levels">MIDS Levels</h2>
+    <div class="term-table-wrapper">
+        <div class="table-responsive print-avoid">
+            <table class="table table-compact table-terms">
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Label</th>
+                        <th>Description</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for idx, v in levels.iterrows() %}
+                    <tr>
+                        <td id="mids{{ v['level'] }}">{{ v['level'] }}</td>
+                        <td>{{ v['label'] }}</td>
+                        <td>{{ v['description'] }}</td>
+                        <td>{{ v['purpose'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
