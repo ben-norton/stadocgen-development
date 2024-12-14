@@ -15,22 +15,23 @@ Built using Python Flask, the application transforms a set of CSV files into dat
 
 ```
 ├───app
-│   ├───build       | Static html files generated using Frozen Flask (https://pythonhosted.org/Frozen-Flask/)
-│   ├───data        | Source data files in csv format
-│   │   ├───global
-│   │   ├───ltc
-│   │   │   ├───ltc-docs    | Source data post-transformation scripts
-│   │   │   └───ltc-source  | Original source data files
-│   │   │   └───ltc-source  | Tabular data schemas generated from the source CSV files (not part of the core stadocgen app)
-│   ├───md          | Specific content blocks in markdown format 
-│   │   └───ltc     | Markdown associated with Latimer Core Documentation
-│   │   └───tdwg    | Latest versions of official TDWG documentation markdown content, these files are then customized for each standard
-│   ├───static      | Static assets (css, js, icons)
-│   │   └───assets  | Standard static assets (do not change)
-│   │   └───images  | Stanard-specific custom imagery 
-│   │   └───custom  | Customized CSS overrides and javascript files that extend and alter the standardized template files under assets.
-│   ├───templates   | Jinja templates
-│   ├───utils       | Data transformation utilities 
+│   ├───build            | Static html files generated using Frozen Flask (https://pythonhosted.org/Frozen-Flask/)
+│   ├───data             | Standard data 
+│   │   ├───output       | Output from the transformation of source data files used for documentation webpages
+│   │   └───source       | Original source data files
+│   ├───md               | Specific content blocks in markdown format 
+│   │   └───tdwg         | Latest versions of official TDWG documentation markdown content, these files are then customized for each standard
+│   ├───static           | Static assets (css, js, icons)
+│   │   └───assets       | Standard static assets (do not change)
+│   │   └───images       | Stanard-specific custom imagery 
+│   │   └───custom       | Customized CSS overrides and javascript files that extend and alter the standardized template files under assets.
+│   ├───templates        | Jinja templates
+│   │   └───includes     | Page components partitioned into folders based on scope
+│   ├───utils            | Data transformation utilities 
+│   │   └───schemas      | Tabular data schemas generated from the source CSV files
+│   │   └───transformers | Scripts that transform source data files into output used to generate the documentation webpages
+│   │   └───analysis     | Various scripts for analysis of source and output data files
+
 _init__.py
 freeze.py   Frozen flask script to generate build files
 routes.py   Dynamic flask script

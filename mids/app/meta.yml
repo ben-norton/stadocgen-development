@@ -1,4 +1,5 @@
 title:                        # Title of Standard
+stadocgen-path:               # Relative path to root of
 acronym:                      # Acronym of Standard (usually the namespace in proper/camel-case
 documentation-landing-page:   # Landing Page URL of the standard documentation
 github-repo:                  # URL of the GitHub Repo

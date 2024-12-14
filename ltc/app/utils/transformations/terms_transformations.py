@@ -9,15 +9,15 @@ path = current_dir.parent.parent
 # -------------------------------------------------------
 # Create copies
 term_src = str(path)+'/data/source/ltc_terms_source.csv'
-term_csv = str(path)+'/data/docs/ltc-termlist.csv'
+term_csv = str(path)+'/data/output/ltc-termlist.csv'
 shutil.copy(term_src, term_csv)
 
 ns_src = str(path)+'/data/source/ltc_namespaces.csv'
-ns_csv = str(path)+'/data/docs/ltc-namespaces.csv'
+ns_csv = str(path)+'/data/output/ltc-namespaces.csv'
 shutil.copy(ns_src, ns_csv)
 
 dt_src = str(path)+'/data/source/ltc_datatypes.csv'
-dt_csv = str(path)+'/data/docs/ltc-datatypes.csv'
+dt_csv = str(path)+'/data/output/ltc-datatypes.csv'
 shutil.copy(dt_src, dt_csv)
 
 # -------------------------------------------------------

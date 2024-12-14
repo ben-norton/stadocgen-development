@@ -8,7 +8,7 @@ path = current_dir.parent.parent
 
 # 1.  Create copy of source csv
 sssom_src = str(path)+'/data/source/mapping/ltc_sssom_mapping.csv'
-sssom_csv = str(path)+'/data/docs/ltc-sssom.csv'
+sssom_csv = str(path)+'/data/output/ltc-sssom.csv'
 shutil.copy(sssom_src, sssom_csv)
 
 sssom_df = pd.read_csv(sssom_csv, encoding='utf8')

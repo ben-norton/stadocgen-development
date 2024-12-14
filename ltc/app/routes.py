@@ -48,10 +48,10 @@ def terms():
         marked_text = markdown2.markdown(f.read(), extras=["tables", "fenced-code-blocks"])
 
     # Terms
-    terms_csv = 'app/data/docs/ltc-termlist.csv'
+    terms_csv = 'app/data/output/ltc-termlist.csv'
     terms_df = pd.read_csv(terms_csv, encoding='utf8')
 
-    sssom_csv = 'app/data/docs/ltc-sssom.csv'
+    sssom_csv = 'app/data/output/ltc-sssom.csv'
     sssom_df = pd.read_csv(sssom_csv, encoding='utf8')
 
     terms_df['examples'] = terms_df['examples'].str.replace('"', '')
@@ -111,7 +111,7 @@ def quickReference():
         marked_text = markdown2.markdown(f.read())
 
     # Quick Reference Main
-    df = pd.read_csv('app/data/docs/ltc-termlist.csv', encoding='utf8')
+    df = pd.read_csv('app/data/output/ltc-termlist.csv', encoding='utf8')
     df['examples'] = df['examples'].str.replace(r'"', '')
     df['definition'] = df['definition'].str.replace(r'"', '')
     df['usage'] = df['usage'].str.replace(r'"', '')
