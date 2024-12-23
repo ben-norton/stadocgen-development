@@ -1,0 +1,17 @@
+{
+    "fields": [
+        {
+            "name": "curie",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "value",
+            "type": "string",
+            "format": "default"
+        }
+    ],
+    "missingValues": [
+        ""
+    ]
+}

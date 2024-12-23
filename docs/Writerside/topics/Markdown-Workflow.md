@@ -1,41 +1,20 @@
-# Workflows
+# Instance Notes
+Purpose: Provide specifications, usage remarks and technical documentation at the instance (standards) level. 
+Please consult the corresponding topic for information regarding a specific instance of StaDocGen.
 
-Current TDWG procedures include the submission of a standardized set of CSV files for the purposes of generate RDF code and permanent and resolvable URIs for TDWG terms. 
-The goal of Stadocgen is to automatically generate standardized documentation webpages using the same set of CSV files currently used for RDF. used that same set of CSV files to generate a standardized documentation webpages for TDWG standard. 
-The instructions and specifications below are based on the Latimer Core standard
+Important Note!
+StaDocGen may be forked to a new repository then customized for a particular standard outside but adjacent to TDWG, such as 
+the OpenDS model. Here, a project subfolder is not created for the standard. Rather, the forked version serves as the 
+instance location and should be consulted accordingly. For project documentation purposes, child topics have been created
+for these standards that include a clear annotation at the top of the page under Instance Type.
 
-2 Sets of Files
-1. CSV Vocabulary Files
-2. Markdown files containing website content
-
-
-
-# Latimer Core
-Stadocgen was developed during the review of Latimer Core to generate documentation. LtC was the excellent test case due to its 
-size, complexity, and relationships with several pre-existing standards.
-
-
-Source Repo: https://github.com/tdwg/ltc
-Source CSV Files: 
-[repo]\source\terms\
-    abcd.csv
-    chrono.csv
-    dcterms.csv
-    dwc.csv
-    ltc.csv
-    ltc_categories.csv
-    ltc_datatypes.csv
-    ltc_terms_source.csv
-    schema.csv
-    mapping\
-        ltc_skos_mapping.csv
-        ltc_sssom_mapping.csv
-
-
-## Transformations
-Transformation scripts
-After local CSV and markdown files have been refreshed from source repository, run the following transformations scripts
-app/utils/transformations/terms_transformations.py
-app/utils/transformations/ltc-paths.py
-app/utils/transformations/skos-transformations.py
-app/utils/transformations/sssom-transformations.py
+Instance Note Template
+Name
+Docs Homepage: 
+Development Docs Homepage: 
+GitHub Repo: 
+Landing Page: 
+Instance Type: (Forked or Local)
+Instance Notes:
+Description: 
+Folder Structure: 

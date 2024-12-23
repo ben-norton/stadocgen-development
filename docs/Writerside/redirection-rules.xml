@@ -6,12 +6,4 @@
         <accepts>page.html</accepts>
     </rule>
     -->
-    <rule id="4e62cda8">
-        <description>Created after removal of "Procedures" from Help Instance</description>
-        <accepts>Procedures.html</accepts>
-    </rule>
-    <rule id="2ebf315">
-        <description>Created after removal of "Architecture" from Help Instance</description>
-        <accepts>Architecture.html</accepts>
-    </rule>
 </rules>
