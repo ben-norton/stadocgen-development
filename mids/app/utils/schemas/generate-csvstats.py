@@ -25,6 +25,11 @@ if not os.path.isdir(targetPath):
 sourceFiles = str(sourcePath) + "*.csv"
 for f in glob.glob(sourceFiles):
     stemName = Path(f).stem
-    destFile = stemName + "-stats.csv"
+    if(stemName == 'mids_information_elements_draft'):
+        destFile = 'mids-information-elements-csvstats.csv'
+    elif(stemName == 'MIDS-levels-draft'):
+        destFile = 'mids-levels-csvstats.csv'
+    else:
+        destFile = stemName + '-csvstats.csv'
     dest = str(targetPath) + '/' + destFile
     os.system("csvstat " + f + " > " + dest)

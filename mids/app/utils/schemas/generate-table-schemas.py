@@ -34,6 +34,9 @@ sourceFiles = str(sourcePath) + "*.csv"
 for f in glob.glob(sourceFiles):
     if f.endswith(ext):
         stemName = Path(f).stem
+        stemName = str.lower(stemName)
+        stemName = stemName.replace('_','-')
+        stemName = stemName.replace('-draft','')
         table = Table(f)
 
         # Scan first 500 rows to determine datatype

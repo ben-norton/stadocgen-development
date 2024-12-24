@@ -75,6 +75,7 @@ ltc_df.to_csv(term_csv, index=False, encoding='utf8')
 dt_df = pd.read_csv(dt_csv, encoding='utf8')
 dt_df.rename(columns={'term_localName': 'term_local_name','tdwgutility_organizedInClass': 'class_name'}, inplace=True)
 dt_df['compound_name'] = dt_df[["class_name", "term_local_name"]].apply(".".join, axis=1)
+
 # Resave datatypes file
 dt_df.to_csv(dt_csv, index=False, encoding='utf8')
 
