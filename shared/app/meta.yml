@@ -1,10 +1,11 @@
-title:                        # Title of Standard
-acronym:                      # Acronym of Standard (usually the namespace in proper/camel-case
-documentation-landing-page:   # Landing Page URL of the standard documentation
-github-repo:                  # URL of the GitHub Repo
-source-data-files:            # Full URL to Source Files as YAML List
-
-source-md-files:              # Full URL of Source Markdown content files as YAML List
-
-last-modified:                # Date file last modified
-comments:                     # General remarks about the StaDocGen instance for standard
+title:            # Full title of Standard
+acronym:          # Acronym of Standard (usually the namespace in proper/camel-case
+links:
+  taskGroup:      # URL. Landing page for the associated Task Group
+  landingPage:    # URL. Landing Page URL of the standard documentation
+  githubRepository:  # URL. URL of the GitHub Repo
+sources:
+  tabulated:     # Simple Array. Full URL to raw source files (url should being with raw.githubusercontent.com) in a YAML List
+  markdown:      # Simple Array. Full URL of Source Markdown content files as YAML List
+last-modified:   # Date. Date file last modified
+note:            # General remarks about the StaDocGen instance for standard

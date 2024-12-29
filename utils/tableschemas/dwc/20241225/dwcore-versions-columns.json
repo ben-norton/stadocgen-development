@@ -1,0 +1,19 @@
+{
+    "document_modified": "string",
+    "version": "string",
+    "versionLocalName": "string",
+    "version_isDefinedBy": "string",
+    "version_issued": "date",
+    "version_status": "string",
+    "replaces_version": "string",
+    "replaces1_version": "string",
+    "replaces2_version": "string",
+    "label": "string",
+    "rdfs_comment": "string",
+    "dcterms_description": "string",
+    "rdf_type": "string",
+    "tdwgutility_abcdEquivalence": "string",
+    "tdwgutility_organizedInClass": "string",
+    "tdwgutility_decision": "string",
+    "term_localName": "string"
+}

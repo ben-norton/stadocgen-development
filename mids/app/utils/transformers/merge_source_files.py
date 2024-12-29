@@ -16,7 +16,7 @@ projectPath = currentPath.parent.parent.parent
 levelsFile = str(projectPath) + '/app/data/output/mids-levels.csv'
 infoElFile = str(projectPath) + '/app/data/output/mids-information-elements.csv'
 termsFile = str(projectPath) + '/app/data/output/mids-termlist.csv'
-mapFile = str(projectPath) + '/app/data/source-files/mids-schema-maps/mids_class_property_map.csv'
+mapFile = str(projectPath) + '/app/data/source/mids-schema-maps/mids_class_property_map.csv'
 
 # Create empty template if file doesn't exist
 if not os.path.isdir(termsFile):

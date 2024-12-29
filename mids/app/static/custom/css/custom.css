@@ -1,51 +1,45 @@
 /*
 StaDocGen Custom Page Styling
 Ben Norton
-Last Modified: 202411060
+Last Modified: 20241227
 
+Instance: MIDS
+Primary Theme Color: #26590d;
 
-Units
-0.8rem 12.8px
-0.9rem 14.4px
-1.0rem 16px
-1.2rem 19.2px
-1.2rem
-1.5rem 24px
 */
-
 .custom-bg-color {
-	background-color: #560D59 !important;
+	background-color: #26590d !important;
 }
 .custom-text-color {
-	color: #560D59 !important;
+	color: #26590d !important;
 }
 .btn-outline-primary {
-    color: #560D59;
-    border-color: #560D59;
+    color: #26590d;
+    border-color: #26590d;
 	font-weight: 500;
 }
 .btn-outline-primary:hover,
 .btn-outline-primary:focus {
-	background-color: #560D59;
+	background-color: #26590d;
 	color: #FFFFFF;
 	font-weight: 500;
 }
 .th-collapser i.fa {
 	background: transparent;
-	color: #560D59;
+	color: #26590d;
 	font-size: 18px;
 	margin-left: 10px;
 }
 td.indicator-td {
-	color: #560D59;
+	color: #26590d;
 	text-align: center;
 }
 table.table-sssom tbody tr th.col-w-4:hover {
-	background-color: #560D59;
+	background-color: #26590d;
 	color: #FFFFFF;
 }
 th.popover-container .popover .popover-header {
-	background-color: #560D59;
+	background-color: #26590d;
 	color: #FFFFFF;
 }
 
@@ -751,7 +745,7 @@ Original:#043B58;
 Red: #8C3515
 Green: #235900
 Green 2: #006653
-Purple: #560D59
+Purple: #26590d
 */
 /* Fullscreen */
 .mermaid {

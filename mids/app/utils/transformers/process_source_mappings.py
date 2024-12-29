@@ -10,17 +10,17 @@ root = get_project_root()
 # Files:
 dwc_filestem = 'sssom_mids_dwc_biology_02'
 dwc_repofile = 'https://raw.githubusercontent.com/tdwg/mids/refs/heads/main/sssom-mapping/dwc/biology/sssom_mids_dwc_biology_02.sssom.tsv'
-dwc_localtsv = str(root) + '/mids/app/data/source-files/mids-repo/mappings/' + dwc_filestem + '.tsv'
-dwc_localcsv = str(root) + '/mids/app/data/source-files/mids-repo/mappings/' + dwc_filestem + '.csv'
+dwc_localtsv = str(root) + '/mids/app/data/source/mids-repo/mappings/' + dwc_filestem + '.tsv'
+dwc_localcsv = str(root) + '/mids/app/data/source/mids-repo/mappings/' + dwc_filestem + '.csv'
 dwc_sssomfile = str(root) + '/mids/app/data/output/mids-dwc-sssom.csv'
-dwc_uniquecsv = str(root) + '/mids/app/data/source-files/mids-repo/mappings/dwc_unique_class_property_pairs.csv'
+dwc_uniquecsv = str(root) + '/mids/app/data/source/mids-repo/mappings/dwc_unique_class_property_pairs.csv'
 
 abcd_filestem = 'sssom_mids_abcd_biology_02'
 abcd_repofile = 'https://raw.githubusercontent.com/tdwg/mids/refs/heads/main/sssom-mapping/abcd/biology/sssom_mids_abcd_biology_02.sssom.tsv'
-abcd_localtsv = str(root) + '/mids/app/data/source-files/mids-repo/mappings/' + abcd_filestem + '.tsv'
-abcd_localcsv = str(root) + '/mids/app/data/source-files/mids-repo/mappings/' + abcd_filestem + '.csv'
+abcd_localtsv = str(root) + '/mids/app/data/source/mids-repo/mappings/' + abcd_filestem + '.tsv'
+abcd_localcsv = str(root) + '/mids/app/data/source/mids-repo/mappings/' + abcd_filestem + '.csv'
 abcd_sssomfile = str(root) + '/mids/app/data/output/mids-abcd-sssom.csv'
-abcd_uniquecsv = str(root) + '/mids/app/data/source-files/mids-repo/mappings/abcd_unique_class_property_pairs.csv'
+abcd_uniquecsv = str(root) + '/mids/app/data/source/mids-repo/mappings/abcd_unique_class_property_pairs.csv'
 
 def download(url, localfile):
     urllib.request.urlretrieve(url, localfile)

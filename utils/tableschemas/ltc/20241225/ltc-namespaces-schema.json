@@ -1,0 +1,17 @@
+{
+    "fields": [
+        {
+            "name": "namespace",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "namespace_iri",
+            "type": "string",
+            "format": "default"
+        }
+    ],
+    "missingValues": [
+        ""
+    ]
+}

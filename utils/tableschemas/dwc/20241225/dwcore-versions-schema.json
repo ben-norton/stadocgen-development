@@ -1,0 +1,92 @@
+{
+    "fields": [
+        {
+            "name": "document_modified",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "version",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "versionLocalName",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "version_isDefinedBy",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "version_issued",
+            "type": "date",
+            "format": "%Y-%m-%d"
+        },
+        {
+            "name": "version_status",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "replaces_version",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "replaces1_version",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "replaces2_version",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "label",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "rdfs_comment",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "dcterms_description",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "rdf_type",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "tdwgutility_abcdEquivalence",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "tdwgutility_organizedInClass",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "tdwgutility_decision",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "term_localName",
+            "type": "string",
+            "format": "default"
+        }
+    ],
+    "missingValues": [
+        ""
+    ]
+}

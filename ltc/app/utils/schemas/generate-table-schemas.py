@@ -15,7 +15,7 @@ currentPath = Path().absolute()
 projectPath = currentPath.parent.parent.parent
 
 # Source Files Path
-sourcePath = str(projectPath) + '/app/data/source-files/'
+sourcePath = str(projectPath) + '/app/data/output/'
 
 # Timestamped output path
 targetPath = str(currentPath) + '/tableschemas/'+str(ts)
@@ -34,6 +34,9 @@ sourceFiles = str(sourcePath) + "*.csv"
 for f in glob.glob(sourceFiles):
     if f.endswith(ext):
         stemName = Path(f).stem
+        stemName = str.lower(stemName)
+        stemName = stemName.replace('_','-')
+        stemName = stemName.replace('-draft','')
         table = Table(f)
 
         # Scan first 500 rows to determine datatype

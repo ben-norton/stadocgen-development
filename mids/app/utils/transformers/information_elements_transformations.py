@@ -14,7 +14,7 @@ namespace = 'mids'
 currentPath = Path().absolute()
 projectPath = currentPath.parent.parent.parent
 # Source Files Path
-sourceFile = str(projectPath) + '/app/data/source-files/mids-repo/mids_information_elements_draft.csv'
+sourceFile = str(projectPath) + '/app/data/source/mids-repo/mids_information_elements_draft.csv'
 
 # Timestamped output path
 # Create timestamped folder for working files (works in progress)

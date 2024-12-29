@@ -13,7 +13,7 @@ This directory contains the data transformation scripts run prior to generating 
 
 ## Basic Workflow
 Sequence: process_source_mappings.py > levels_transformations.py > information_elements_transformations.py > merge_source_files.py 
-***Files in the data\source-files\mids-repo must be downloaded manually (except for the mappings) before running transformations***
+***Files in the data\source\mids-repo must be downloaded manually (except for the mappings) before running transformations***
 
 **process_source_mappings.py** 
 - Downloads latest version of both the ABCD and DWC SSSOM mapping files

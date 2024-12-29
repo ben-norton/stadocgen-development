@@ -1,0 +1,18 @@
+{
+    "document_modified": "string",
+    "term_localName": "string",
+    "term_isDefinedBy": "string",
+    "term_created": "date",
+    "term_modified": "date",
+    "term_deprecated": "boolean",
+    "replaces_term": "string",
+    "replaces1_term": "string",
+    "replaces2_term": "string",
+    "label": "string",
+    "rdfs_comment": "string",
+    "dcterms_description": "string",
+    "rdf_type": "string",
+    "tdwgutility_abcdEquivalence": "string",
+    "tdwgutility_organizedInClass": "string",
+    "tdwgutility_decision": "string"
+}

@@ -12,7 +12,7 @@ currentPath = Path().absolute()
 projectPath = currentPath.parent.parent.parent
 
 # Source Files Path
-sourcePath = str(projectPath) + '/app/data/source-files/mids-repo/'
+sourcePath = str(projectPath) + '/app/data/source/mids-repo/'
 
 # Timestamped output path
 targetPath = str(currentPath)+'/csvstats/'+str(ts)

@@ -19,7 +19,7 @@ currentPath = Path().absolute()
 projectPath = currentPath.parent.parent.parent
 
 # Source Files Path
-sourcePath = str(projectPath) + '/app/data/source-files'
+sourcePath = str(projectPath) + '/app/data/source'
 
 # Timestamped output path
 targetPath = str(currentPath)+'/analysis/'+str(ts)
