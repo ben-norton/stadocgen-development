@@ -1,16 +1,16 @@
 title:            "Minimum Information about a Digital Specimen"
-acronym:          MIDS
+acronym:          "MIDS"
 links:
-  taskGroup:      https://www.tdwg.org/community/cd/mids/
-  landingPage:    https://dev.mids.dissco.tech/ # Initial version of the published docs from a fork of stadocgen
-  githubRepository:  https://github.com/tdwg/mids
+  task_group:      "https://www.tdwg.org/community/cd/mids/"
+  landing_page:    "https://dev.mids.dissco.tech/" # Initial version of the published docs from a fork of stadocgen
+  github_repository:  "https://github.com/tdwg/mids"
 sources:
   tabulated:
-    - https://raw.githubusercontent.com/tdwg/mids/refs/heads/main/standard/mids-levels/MIDS-levels-draft.csv
-    - https://raw.githubusercontent.com/tdwg/mids/refs/heads/main/standard/information_elements/mids_information_elements_draft.csv
-    - https://raw.githubusercontent.com/tdwg/mids/refs/heads/main/sssom-mapping/dwc/biology/sssom_mids_dwc_biology_02.sssom.tsv
-    - https://raw.githubusercontent.com/tdwg/mids/refs/heads/main/sssom-mapping/abcd/biology/sssom_mids_abcd_biology_02.sssom.tsv
+    - "https://raw.githubusercontent.com/tdwg/mids/refs/heads/main/standard/mids-levels/MIDS-levels-draft.csv"
+    - "https://raw.githubusercontent.com/tdwg/mids/refs/heads/main/standard/information_elements/mids_information_elements_draft.csv"
+    - "https://raw.githubusercontent.com/tdwg/mids/refs/heads/main/sssom-mapping/dwc/biology/sssom_mids_dwc_biology_02.sssom.tsv"
+    - "https://raw.githubusercontent.com/tdwg/mids/refs/heads/main/sssom-mapping/abcd/biology/sssom_mids_abcd_biology_02.sssom.tsv"
   markdown:       # Full URL of Source Markdown content files as YAML List
-    - https://raw.githubusercontent.com/tdwg/mids/refs/heads/main/standard/informationElementListHeader.md
-last-modified:   20241227
+    - "https://raw.githubusercontent.com/tdwg/mids/refs/heads/main/standard/informationElementListHeader.md"
+last_modified:   "20241227"
 note:            "See MIDS Website - Information Elements google doc for specifications https://docs.google.com/document/d/1SYjhJtB_dqCza3wju2M2k1mQCP6zstyPjePCiVyurl8/edit?tab=t.0#heading=h.nozqxpw2sbyb"

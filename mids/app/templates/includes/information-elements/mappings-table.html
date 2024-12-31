@@ -1,0 +1,28 @@
+<div class="sssom-table-wrapper">
+{% if v['mapping_justification'] is none %}
+{% else %}
+     <table class="table table-condensed table-sssom table-child caption-top" data-toggle="table">
+        <caption>SSSOM Mappings</caption>
+        <thead>
+            <tr>
+                <th>Object Category</th>
+                <th>Object ID</th>
+                <th>Predicate</th>
+                <th>Source Version</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%  for idx2,v2 in mappings.iterrows() %}
+                {%  if v2['term_local_name'] == v['term_local_name'] and v2['sssom_subject_category'] == v['class_name'] %}
+                    <tr>
+                        <td data-th="Object Category: "><a href="{{ v2.sssom_object_category }}">{{  v2.sssom_object_category }}</a></td>
+                        <td data-th="Object Label ">{{ v2.sssom_object_id }}</td>
+                        <td data-th="Predicate ">{{  v2.sssom_predicate_id }}</td>
+                        <td data-th="Object Version Source: "><a href="{{ v2.object_source_version }}">{{ v2.object_source_version }}</a></td>
+                    </tr>
+                {%  endif %}
+            {%  endfor %}
+        </tbody>
+    </table>
+{% endif %}
+</div>

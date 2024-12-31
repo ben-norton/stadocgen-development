@@ -19,8 +19,7 @@ Built using Python Flask, the application transforms a set of CSV files into dat
 │   ├───data             | Standard data 
 │   │   ├───output       | Output from the transformation of source data files used for documentation webpages
 │   │   └───source       | Original source data files
-│   ├───md               | Specific content blocks in markdown format 
-│   │   └───tdwg         | Latest versions of official TDWG documentation markdown content, these files are then customized for each standard
+│   ├───md               | Latest versions of official TDWG documentation markdown content, these files are then customized for each standard
 │   ├───static           | Static assets (css, js, icons)
 │   │   └───assets       | Standard static assets (do not change)
 │   │   └───images       | Stanard-specific custom imagery 

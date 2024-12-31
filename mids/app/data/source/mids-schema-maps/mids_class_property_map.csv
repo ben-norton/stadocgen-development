@@ -1,22 +1,22 @@
-class_name,term_ns_name,term_local_name
-mids0,mids:Organization,Organization
-mids0,mids:PhysicalSpecimenID,PhysicalSpecimenID
-mids1,mids:License,License
-mids1,mids:Modified,Modified
-mids1,mids:Name,Name
-mids1,mids:ObjectType,ObjectType
-mids1,mids:ScientificNameID,ScientificNameID
-mids1,mids:SpecimenType,SpecimenType
-mids2,mids:CollectingAgent,CollectingAgent
-mids2,mids:CollectionDate,CollectionDate
-mids2,mids:CollectorNumber,CollectorNumber
-mids2,mids:QualitativeLocation,QualitativeLocation
-mids2,mids:QuantitativeLocation,QuantitativeLocation
-mids2,mids:TypeStatus,TypeStatus
-mids2,mids:media,media
-mids3,mids:AssociatedMediaID,AssociatedMediaID
-mids3,mids:CollectorID,CollectorID
-mids3,mids:GeographicalLocalityID,GeographicalLocalityID
-mids3,mids:IdentifiedByID,IdentifiedByID
-mids3,mids:InstitutionID,InstitutionID
-mids3,mids:ScientificNameID,ScientificNameID
+class_name,class_label,term_ns_name,term_local_name
+mids0,MIDS Level 0 - Bare,mids:Organization,Organization
+mids0,MIDS Level 0 - Bare,mids:PhysicalSpecimenID,PhysicalSpecimenID
+mids1,MIDS Level 1 - Basic,mids:License,License
+mids1,MIDS Level 1 - Basic,mids:Modified,Modified
+mids1,MIDS Level 1 - Basic,mids:Name,Name
+mids1,MIDS Level 1 - Basic,mids:ObjectType,ObjectType
+mids1,MIDS Level 1 - Basic,mids:ScientificNameID,ScientificNameID
+mids1,MIDS Level 1 - Basic,mids:SpecimenType,SpecimenType
+mids2,MIDS Level 2 - Intermediary,mids:CollectingAgent,CollectingAgent
+mids2,MIDS Level 2 - Intermediary,mids:CollectionDate,CollectionDate
+mids2,MIDS Level 2 - Intermediary,mids:CollectorNumber,CollectorNumber
+mids2,MIDS Level 2 - Intermediary,mids:QualitativeLocation,QualitativeLocation
+mids2,MIDS Level 2 - Intermediary,mids:QuantitativeLocation,QuantitativeLocation
+mids2,MIDS Level 2 - Intermediary,mids:TypeStatus,TypeStatus
+mids2,MIDS Level 2 - Intermediary,mids:media,media
+mids3,MIDS Level 3 - Extended,mids:AssociatedMediaID,AssociatedMediaID
+mids3,MIDS Level 3 - Extended,mids:CollectorID,CollectorID
+mids3,MIDS Level 3 - Extended,mids:GeographicalLocalityID,GeographicalLocalityID
+mids3,MIDS Level 3 - Extended,mids:IdentifiedByID,IdentifiedByID
+mids3,MIDS Level 3 - Extended,mids:InstitutionID,InstitutionID
+mids3,MIDS Level 3 - Extended,mids:ScientificNameID,ScientificNameID

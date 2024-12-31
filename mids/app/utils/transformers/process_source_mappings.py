@@ -42,24 +42,44 @@ download(abcd_repofile, abcd_localtsv)
 convert_tsv_to_csv(dwc_localtsv, dwc_localcsv)
 convert_tsv_to_csv(abcd_localtsv, abcd_localcsv)
 
-# Generate Unique Class-Property Pairs for DWC
-df_dwc = pd.read_csv(dwc_localcsv, encoding="utf8")
-df1 = df_dwc[['sssom:subject_category','sssom:subject_id']].drop_duplicates()
-df1.rename(columns={'sssom:subject_id': 'qualified_term',
-                    'sssom:subject_category': 'class_name'
-                   }, inplace=True)
-df1['term_local_name'] = df1['qualified_term'].str.replace('mids:', '')
-df1.to_csv(dwc_uniquecsv, index=False, encoding='utf8')
+# ------------------------------------------------------------
+# DWC
 
-# Generate Unique Class-Property Pairs for ABCD
-df_abcd = pd.read_csv(abcd_localcsv, encoding="utf8")
-df2 = df_abcd[['sssom:subject_category','sssom:subject_id']].drop_duplicates()
-df2.rename(columns={'sssom:subject_id': 'qualified_term',
+df_dwc = pd.read_csv(dwc_localcsv, encoding="utf8")
+
+# Generate Unique Class-Property Pairs for DWC
+df_dwc_mapping = df_dwc[['sssom:subject_category','sssom:subject_id']].drop_duplicates()
+df_dwc_mapping.rename(columns={'sssom:subject_id': 'qualified_term',
                     'sssom:subject_category': 'class_name'
                    }, inplace=True)
-df2['term_local_name'] = df2['qualified_term'].str.replace('mids:', '')
-df2.to_csv(abcd_uniquecsv, index=False, encoding='utf8')
+df_dwc_mapping['term_local_name'] = df_dwc_mapping['qualified_term'].str.replace('mids:', '')
+df_dwc_mapping.to_csv(dwc_uniquecsv, index=False, encoding='utf8')
+
+# Write new mappings file
+df_dwc['object_source_version'] = 'http://rs.tdwg.org/dwc/terms'
+# Replace colon in column names with underscores - jinja2 template reserved character
+df_dwc.columns = df_dwc.columns.str.replace(':','_', regex=True)
+df_dwc.to_csv(dwc_sssomfile, index=False, encoding='utf8')
+
+# ------------------------------------------------------------
+# ABCD
+
+df_abcd = pd.read_csv(abcd_localcsv, encoding="utf8")
+# Generate Unique Class-Property Pairs for ABCD
+df_abcd_mapping = df_abcd[['sssom:subject_category','sssom:subject_id']].drop_duplicates()
+df_abcd_mapping.rename(columns={'sssom:subject_id': 'qualified_term',
+                    'sssom:subject_category': 'class_name'
+                   }, inplace=True)
+df_abcd_mapping['term_local_name'] = df_abcd_mapping['qualified_term'].str.replace('mids:', '')
+df_abcd_mapping.to_csv(abcd_uniquecsv, index=False, encoding='utf8')
+
+# Write new mappings file
+df_abcd['object_source_version'] = 'http://www.tdwg.org/schemas/abcd/2.06'
+# Replace colon in column names with underscores - jinja2 template reserved character
+df_abcd.columns = df_abcd.columns.str.replace(':','_', regex=True)
+df_abcd.to_csv(abcd_sssomfile, index=False, encoding='utf8')
+
 
 # Create copies of both mappings files in output directory
-shutil.copy(dwc_localcsv, dwc_sssomfile)
-shutil.copy(abcd_localcsv, abcd_sssomfile)
+#shutil.copy(dwc_localcsv, dwc_sssomfile)
+#shutil.copy(abcd_localcsv, abcd_sssomfile)

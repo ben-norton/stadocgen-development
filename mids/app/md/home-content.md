@@ -6,12 +6,11 @@ for data standards and mapping structures.
 
 Getting started[](#getting-started)
 -----------------------------------
-*   [Normative Information Element List](https://dev.mids.dissco.tech/terms)
-*   [Quick Reference Guide](https://dev.mids.dissco.tech/quick-reference)
-*   [SSSOM Mapping](https://docs.google.com/spreadsheets/d/1ydNC8DHnrAPhPhTEQ7RmAztKJjJQCOiyX1wYl0SbFkU/edit?usp=sharing)
+*   [Normative Information Element List]()
+*   [SSSOM Mapping]()
 *   Provide feedback through a [github issue](https://github.com/tdwg/mids/issues)
 
 -------------
 ## Public Review 
 First setup of MIDS documentation pages
-*Last Updated: July. 24, 2024*
+*Last Updated: December 31st, 2024*

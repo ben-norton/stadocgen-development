@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block main %}
     <main id="top">
-        {% include 'includes/page-header.html' %}
+        {% include 'includes/global/page-header.html' %}
         <div class="container content">
             <div class="row">
                 <div class="col-lg-3 mx-auto">
@@ -11,6 +11,7 @@
                     <div class="content-header-wrapper">
                         {{ headerMarkdown }}
                     </div>
+                    {%  include 'includes/mappings/mappings-summary.html' %}
                     {%  include 'includes/mappings/mappings-table.html' %}
                 </div>
             </div>

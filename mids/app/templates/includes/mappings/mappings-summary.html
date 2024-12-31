@@ -1,0 +1,29 @@
+<h3>Mapping Summary</h3>
+<p>The tables below provides a summary of the MIDS mappings.</p>
+
+<div class="table-outer-wrapper">
+    <div class="term-table-wrapper">
+        <div class="table-responsive print-avoid">
+            <table class="table table-compact table-terms">
+                <thead>
+                <tr>
+                    <th><a href="https://mapping-commons.github.io/sssom/subject_category/" target="_blank">Subject Category</a></th>
+                    <th><a href="https://mapping-commons.github.io/sssom/subject_id/" target="_blank">Subject ID</a></th>
+                    <th><a href="https://mapping-commons.github.io/sssom/object_category/" target="_blank">Object Category</a></th>
+                    <th><a href="https://mapping-commons.github.io/sssom/object_id/" target="_blank">Object ID</a></th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for idx, v in mappings.iterrows() %}
+                        <tr>
+                            <td>{{ v['sssom_subject_category'] }}</td>
+                            <td>{{ v['sssom_subject_id'] }}</td>
+                            <td>{{ v['sssom_object_category'] }}</td>
+                            <td>{{ v['sssom_object_id'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

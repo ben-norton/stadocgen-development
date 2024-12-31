@@ -15,7 +15,7 @@ currentPath = Path().absolute()
 projectPath = currentPath.parent.parent.parent
 
 # Source Files Path
-sourcePath = str(projectPath) + '/app/data/source/mids-repo/'
+sourcePath = str(projectPath) + '/app/data/output/'
 
 # Timestamped output path
 targetPath = str(currentPath) + '/tableschemas/'+str(ts)

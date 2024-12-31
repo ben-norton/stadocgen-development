@@ -13,6 +13,14 @@
 					<a class="nav-link {{ 'nav-link-active' if slug == 'home' }}"
                        href="{{ url_for('home') }}">Home</a>
 				</li>
+                <li class="navbar-item">
+					<a class="nav-link {{ 'nav-link-active' if slug == 'information-elements' }}"
+                       href="{{ url_for('information_elements') }}">Information Elements</a>
+				</li>
+                <li class="navbar-item">
+					<a class="nav-link {{ 'nav-link-active' if slug == 'mappings' }}"
+                       href="{{ url_for('mappings') }}">Mappings</a>
+				</li>
 				<li class="navbar-item">
 					<a class="nav-link" href="{{ githubRepo }}">{{  acronym  }} GitHub</a>
 				</li>

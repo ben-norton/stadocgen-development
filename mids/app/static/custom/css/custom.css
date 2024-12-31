@@ -4,42 +4,43 @@ Ben Norton
 Last Modified: 20241227
 
 Instance: MIDS
-Primary Theme Color: #26590d;
-
+Primary Theme Color: #590E0D;
+Revised Theme Color: #590E0D
 */
+.header.bg-no-image,
 .custom-bg-color {
-	background-color: #26590d !important;
+	background-color: #590E0D !important;
 }
 .custom-text-color {
-	color: #26590d !important;
+	color: #590E0D !important;
 }
 .btn-outline-primary {
-    color: #26590d;
-    border-color: #26590d;
+    color: #590E0D;
+    border-color: #590E0D;
 	font-weight: 500;
 }
 .btn-outline-primary:hover,
 .btn-outline-primary:focus {
-	background-color: #26590d;
+	background-color: #590E0D;
 	color: #FFFFFF;
 	font-weight: 500;
 }
 .th-collapser i.fa {
 	background: transparent;
-	color: #26590d;
+	color: #590E0D;
 	font-size: 18px;
 	margin-left: 10px;
 }
 td.indicator-td {
-	color: #26590d;
+	color: #590E0D;
 	text-align: center;
 }
 table.table-sssom tbody tr th.col-w-4:hover {
-	background-color: #26590d;
+	background-color: #590E0D;
 	color: #FFFFFF;
 }
 th.popover-container .popover .popover-header {
-	background-color: #26590d;
+	background-color: #590E0D;
 	color: #FFFFFF;
 }
 
@@ -266,6 +267,11 @@ table tr th.w-26 {
 
 
 /* List Adjustments ----------------------------- */
+list-1-col {
+	-moz-column-count: 1;
+	column-count: 1;
+	-webkit-column-count: 1;
+}
 .list-2-col {
 	-moz-column-count: 2;
 	column-count: 2;
@@ -316,6 +322,7 @@ main.wrapper.home-content ul li {
 	margin: 0;
 	line-height: 1.5;
 }
+
 ul.resources-list,
 ul.term-list,
 ul.cls-list {
@@ -451,10 +458,16 @@ a.th-collapser:hover {
 	text-decoration: underline;
 	background: rgba(230,230,230,0.4);
 }
+.sssom-table-wrapper {
+	padding: 15px;
+}
 
 span.skos-th-label {
 	display: inline-block;
 	text-align: left;
+}
+.sssom-table-wrapper table.table-sssom caption {
+	font-size: 1.2rem;
 }
 table.table-sssom tr.hide-table-padding td {
   padding: 0;
@@ -745,7 +758,7 @@ Original:#043B58;
 Red: #8C3515
 Green: #235900
 Green 2: #006653
-Purple: #26590d
+Purple: #590E0D
 */
 /* Fullscreen */
 .mermaid {
